@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1763354722213,
+      "tag": "0000_great_purifiers",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1763355037105,
+      "tag": "0001_curly_hiroim",
+      "breakpoints": true
+    }
+  ]
+}

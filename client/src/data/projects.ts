@@ -1,0 +1,131 @@
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  fullDescription: string;
+  technologies: string[];
+  image: string;
+  demoUrl?: string;
+  githubUrl?: string;
+  featured: boolean;
+}
+
+export const staticProjects: Project[] = [
+  {
+    id: "pass-in-react",
+    title: "Pass In - React",
+    description: "Projeto de lista de presença de cadastrados em um evento",
+    fullDescription: "Projeto feito utilizando React + Typescript, TailwindCss com Requisição de API. Projeto de lista de presença de cadastrados em um evento. A requisição roda com npm local",
+    technologies: ["React", "TypeScript", "TailwindCSS", "API"],
+    image: "/projects/pass-in.jpg",
+    demoUrl: "https://pass-in-react.vercel.app",
+    githubUrl: "https://github.com/Menephyl/pass-in-react",
+    featured: true,
+  },
+  {
+    id: "cardapio-digital",
+    title: "Cardápio Digital",
+    description: "Cardápio digital interativo para restaurantes",
+    fullDescription: "Projeto feito utilizando HTML, CSS e Javascript carregado com Vite e React. Sistema completo de cardápio digital com carrinho de compras.",
+    technologies: ["HTML", "CSS", "JavaScript", "React", "Vite"],
+    image: "/projects/cardapio.jpg",
+    demoUrl: "https://cardapio-digital.vercel.app",
+    githubUrl: "https://github.com/Menephyl/cardapio_dinamico",
+    featured: true,
+  },
+  {
+    id: "landing-gta5",
+    title: "Landing Page GTA 5",
+    description: "Landing page promocional para o jogo GTA 5",
+    fullDescription: "Projeto feito utilizando HTML, CSS e Javascript. Landing page nada mais é do que uma página web criada com o objetivo de converter visitantes em leads e clientes.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "/projects/gta5.jpg",
+    demoUrl: "https://landing-gta5.vercel.app",
+    githubUrl: "https://github.com/Menephyl/landing-gta5",
+    featured: true,
+  },
+  {
+    id: "cv-online",
+    title: "CV Online",
+    description: "Portfólio oficial com menu lateral e conteúdo dinâmico",
+    fullDescription: "Portifolio oficial desenvolvido com Javascript, HTML5 e CSS. É uma Landing page com menu lateral e conteúdo dinâmico. O mesmo apresenta os projetos, habilidades, serviços e blogs de Yan Menephyl",
+    technologies: ["JavaScript", "HTML5", "CSS3"],
+    image: "/projects/cv-online.jpg",
+    demoUrl: "https://cv-online-yan.vercel.app",
+    githubUrl: "https://github.com/Menephyl/Y_portifolioY",
+    featured: false,
+  },
+  {
+    id: "watch-apple",
+    title: "Watch Apple",
+    description: "Landing page para venda de relógios inteligentes",
+    fullDescription: "Projeto feito utilizando HTML, CSS e Javascript. Simples landing Page para a venda de relógios inteligentes, mostrando algumas opções",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "/projects/watch-apple.jpg",
+    demoUrl: "https://watch-apple.vercel.app",
+    githubUrl: "https://github.com/Menephyl/APPLEJS",
+    featured: false,
+  },
+  {
+    id: "spotify-clone",
+    title: "Spotify Clone",
+    description: "Clone da tela inicial do Spotify com API",
+    fullDescription: "Projeto feito utilizando HTML, CSS e Javascript. Layout tela inicial do spotify com saudação de horário e Api de autores (roda via npm)",
+    technologies: ["HTML", "CSS", "JavaScript", "API"],
+    image: "/projects/spotify.jpg",
+    demoUrl: "https://spotify-clone-yan.vercel.app",
+    githubUrl: "https://github.com/Menephyl/spotify-clone",
+    featured: false,
+  },
+  {
+    id: "cadastro-checkin",
+    title: "Cadastro e Check-In",
+    description: "Sistema de cadastro para eventos com confirmação em tempo real",
+    fullDescription: "Projeto feito utilizando HTML, CSS e Javascript. Tabela que registra uma lista com cadastro para um evento. Com confirmação em tempo real",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "/projects/checkin.jpg",
+    githubUrl: "https://github.com/Menephyl/cadastro-checkin",
+    featured: false,
+  },
+  {
+    id: "audiobook",
+    title: "Audiobook",
+    description: "Livro digital com áudio integrado",
+    fullDescription: "Simples livro digital com audio utilizando HTML, CSS e Javascript",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "/projects/audiobook.jpg",
+    githubUrl: "https://github.com/Menephyl/audiobook",
+    featured: false,
+  },
+  {
+    id: "artigo-android",
+    title: "Site Artigo Android",
+    description: "Artigo informativo sobre Android",
+    fullDescription: "Artigo feito utilizando HTML e CSS",
+    technologies: ["HTML", "CSS"],
+    image: "/projects/android.jpg",
+    githubUrl: "https://github.com/Menephyl/artigo-android",
+    featured: false,
+  },
+  {
+    id: "tabuada",
+    title: "Tabuada",
+    description: "Aplicação de tabuada interativa",
+    fullDescription: "Simples tabuada feita utilizando HTML, CSS e Javascript",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "/projects/tabuada.jpg",
+    githubUrl: "https://github.com/Menephyl/tabuada",
+    featured: false,
+  },
+  {
+    id: "cordel",
+    title: "Cordel",
+    description: "Site de poesia com efeito parallax",
+    fullDescription: "Projeto feito utilizando HTML e CSS. Simples site de uma poesia feita com efeito parallax",
+    technologies: ["HTML", "CSS"],
+    image: "/projects/cordel.jpg",
+    demoUrl: "https://cordel-yan.vercel.app",
+    githubUrl: "https://github.com/Menephyl/cordel",
+    featured: false,
+  },
+];
