@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, memo, useMemo } from "react";
-import { Code2, Rocket, Users, GraduationCap } from "lucide-react";
+import { Code2, Rocket, Users, GraduationCap, Building2, Terminal } from "lucide-react";
 
 // Constantes extraídas para evitar recriação
 const VALUES_DATA = [
@@ -24,29 +24,27 @@ const VALUES_DATA = [
 
 const TIMELINE_DATA = [
   {
-    period: "2015-2017",
-    title: "Programador C#",
-    subtitle: "Microlins",
-    icon: GraduationCap,
-  },
-  {
-    period: "2015-2017",
-    title: "Técnico em Informática",
-    subtitle: "Concomitante ao Ensino Médio",
-    icon: GraduationCap,
-    highlight: true,
-  },
-  {
-    period: "2018-2024",
-    title: "Técnico em Informática e Analista de TI",
-    subtitle: "Autônomo",
+    period: "Agosto de 2025",
+    title: "Desenvolvedor Frontend",
+    subtitle: "Início Oficial e Especialização",
+    description: "Migração oficial de carreira (da dança para o código). Especialização profunda em React.js, TypeScript e interfaces Premium com TailwindCSS, dominando animações fluídas e experiência de usuário.",
     icon: Code2,
   },
   {
-    period: "2025",
-    title: "Dev Full Stack",
-    subtitle: "Dev Club",
-    icon: Rocket,
+    period: "Dezembro de 2025",
+    title: "Desenvolvedor Full Stack",
+    subtitle: "Domínio do Ecossistema Web",
+    description: "Domínio do ecossistema backend na prática. Criação de arquiteturas robustas em Node.js com Express, modelagem de Bancos de Dados Relacionais e integrações de pagamentos e automações.",
+    icon: Terminal,
+    highlight: true,
+  },
+  {
+    period: "Março de 2026",
+    title: "Tech Lead & CEO | Prime Team",
+    subtitle: "Fundação de Software House",
+    description: "Fundação da Prime Team. Liderança em desenvolvimento de ponta a ponta, orquestrando soluções como Delivery, Plataformas SaaS, Landing Pages de alta conversão e Sistemas Administrativos.",
+    icon: Building2,
+    highlight: true,
   },
 ];
 
@@ -163,12 +161,8 @@ function AboutSection() {
                       <h4 className="text-xl font-bold text-foreground mb-1">
                         {item.title}
                       </h4>
-                      <p className="text-muted-foreground">{item.subtitle}</p>
-                      {item.highlight && (
-                        <p className="text-sm text-primary font-semibold mt-2">
-                          ⭐ Destaque: 2 formações simultâneas ao ensino médio
-                        </p>
-                      )}
+                      <p className="text-muted-foreground font-medium mb-2">{item.subtitle}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                     </div>
                   </div>
                 </div>

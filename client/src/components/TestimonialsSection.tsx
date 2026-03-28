@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef, memo, useMemo } from "react";
+import { motion, useInView } from "framer-motion";
 import { Quote } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useMemo, memo, useRef } from "react";
 
 // Recomendações reais do LinkedIn
 const TESTIMONIALS_DATA = [
@@ -45,6 +45,15 @@ function TestimonialsSection() {
 
   const testimonials = useMemo(() => TESTIMONIALS_DATA, []);
 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+  });
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
   return (
     <section id="testimonials" ref={ref} className="py-20 bg-background relative overflow-hidden">
       <div className="container px-6">
@@ -64,47 +73,75 @@ function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-              className="relative bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
-            >
-              {/* Quote Icon */}
-              <div className="absolute top-6 right-6 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                <Quote className="w-6 h-6 text-primary" />
-              </div>
+        {/* Testimonials Carousel */}
+        <div className="relative max-w-6xl mx-auto">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-6 px-4 py-8">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(50%-12px)] min-w-0"
+                >
+                  <div className="relative bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/10 h-full flex flex-col justify-between group">
+                    <div>
+                      {/* Quote Icon */}
+                      <div className="absolute top-6 right-6 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                        <Quote className="w-6 h-6 text-primary" />
+                      </div>
 
-              {/* Testimonial Text */}
-              <p className="text-muted-foreground leading-relaxed mb-6 italic">
-                "{testimonial.testimonial}"
-              </p>
+                      {/* Testimonial Text */}
+                      <p className="text-muted-foreground leading-relaxed mb-6 italic group-hover:text-foreground/90 transition-colors">
+                        "{testimonial.testimonial}"
+                      </p>
+                    </div>
 
-              {/* Author Info */}
-              <div className="flex items-center gap-4 pt-6 border-t border-border">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  width="56"
-                  height="56"
-                  loading="lazy"
-                  className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
-                />
-                <div>
-                  <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  <p className="text-xs text-primary">{testimonial.company}</p>
-                </div>
-              </div>
+                    {/* Author Info */}
+                    <div className="flex items-center gap-4 pt-6 mt-auto border-t border-border">
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        width="56"
+                        height="56"
+                        loading="lazy"
+                        className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
+                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                        <p className="text-xs text-primary font-medium">{testimonial.company}</p>
+                      </div>
+                    </div>
 
-              {/* Decorative Element */}
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0 rounded-b-2xl" />
-            </motion.div>
-          ))}
+                    {/* Decorative Element */}
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Nav Buttons */}
+          <button
+            onClick={scrollPrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary/20 transition-all duration-300 shadow-lg z-10"
+            aria-label="Anterior"
+          >
+            <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary/20 transition-all duration-300 shadow-lg z-10"
+            aria-label="Próximo"
+          >
+            <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
 
         {/* CTA */}

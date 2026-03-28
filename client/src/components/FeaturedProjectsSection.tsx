@@ -33,7 +33,7 @@ export default function FeaturedProjectsSection() {
             Projetos em <span className="text-primary">Destaque</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Seleção dos meus principais trabalhos em Full-Stack, AI Engineering e Web Design
+            Explorando uma base rica de <strong className="text-primary">+30 projetos em produção</strong> através de arquitetura Full-Stack, AI Engineering e UX Design de alta resolução.
           </p>
         </motion.div>
 
@@ -81,7 +81,7 @@ export default function FeaturedProjectsSection() {
             Todos os <span className="text-primary">Projetos</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-            Explore meu portfólio completo organizado por categorias
+            Explore o escopo integral de mais de 30 projetos distribuídos por nichos estratégicos.
           </p>
 
           {/* Category Filters */}

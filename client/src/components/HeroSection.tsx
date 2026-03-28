@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
+import { Typewriter } from "./ui/typewriter";
 import { memo, useCallback } from "react";
 
 function HeroSection() {
@@ -43,12 +44,21 @@ function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
+              className="h-24 md:h-32"
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Desenvolvedor{" "}
-                <span className="text-primary bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
-                  Full-Stack
-                </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                <Typewriter
+                  texts={[
+                    "De Dançarino de Salão a Software Engineer.",
+                    "Desenvolvedor Frontend (React & TypeScript).",
+                    "Desenvolvedor Full Stack (Node.js & APIs).",
+                    "Tech Lead & CEO — Prime Team.",
+                    "+30 Projetos Colocados em Produção."
+                  ]}
+                  typingSpeed={60}
+                  deletingSpeed={30}
+                  delayBeforeDelete={2000}
+                />
               </h1>
             </motion.div>
 
@@ -59,9 +69,8 @@ function HeroSection() {
               transition={{ delay: 0.6 }}
               className="text-lg text-muted-foreground leading-relaxed max-w-xl"
             >
-              Transformo ideias em experiências digitais incríveis. Especializado
-              em criar aplicações web modernas, responsivas e com código limpo.
-              Sempre em busca de novos desafios e aprendizado constante.
+              Transformo ideias complexas em plataformas escaláveis com React, Node.js e IA.
+              Experiência comprovada em entrega de produtos estruturados do design à arquitetura de dados.
             </motion.p>
 
             {/* CTAs */}
@@ -73,10 +82,20 @@ function HeroSection() {
             >
               <Button
                 size="lg"
-                onClick={() => scrollToSection("projects")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-base rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
+                onClick={() => {
+                  window.open("https://wa.me/5585994043916?text=Ol%C3%A1%20Yan%21%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20falar%20sobre%20um%20projeto.%20Podemos%20conversar%3F", "_blank");
+                }}
+                className="bg-[#25D366] hover:bg-[#25D366]/90 text-white font-semibold px-8 py-6 text-base rounded-lg shadow-lg shadow-[#25D366]/20 transition-all duration-300"
               >
-                Ver Projetos
+                Solicitar Proposta (WhatsApp)
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => scrollToSection("projects")}
+                className="border-2 border-primary/30 hover:border-primary/50 hover:bg-primary/5 font-semibold px-8 py-6 text-base rounded-lg transition-all duration-300"
+              >
+                Explorar +30 Projetos
                 <svg
                   className="w-5 h-5 ml-2"
                   fill="none"
@@ -90,15 +109,6 @@ function HeroSection() {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => scrollToSection("contact")}
-                className="border-2 border-primary/30 hover:border-primary/50 hover:bg-primary/5 font-semibold px-8 py-6 text-base rounded-lg transition-all duration-300"
-              >
-                <Mail className="w-5 h-5 mr-2" />
-                Entre em Contato
               </Button>
             </motion.div>
 

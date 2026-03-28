@@ -2,42 +2,48 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, memo, useMemo } from "react";
 
-// Constantes extraídas para evitar recriação
+// Categorias de Skills baseadas no prompt C.O.R.P.O
 const SKILL_CATEGORIES = [
   {
     title: "Frontend",
     skills: [
-      { name: "React", level: 90, color: "from-cyan-500 to-blue-500" },
-      { name: "TypeScript", level: 85, color: "from-blue-500 to-indigo-500" },
-      { name: "Tailwind CSS", level: 95, color: "from-teal-500 to-cyan-500" },
-      { name: "HTML5/CSS3", level: 95, color: "from-orange-500 to-red-500" },
+      { name: "React / Vite.js", level: 95, color: "from-cyan-500 to-blue-500", evidence: "Base de +20 projetos, incluindo Brazukas Delivery e A Plataforma Prime Team." },
+      { name: "TypeScript", level: 90, color: "from-blue-500 to-indigo-500", evidence: "Tipagem forte implementada em sistemas de alta complexidade (E-Commerce Bianca Loja)." },
     ],
   },
   {
     title: "Backend",
     skills: [
-      { name: "Node.js", level: 80, color: "from-green-500 to-emerald-500" },
-      { name: "Express", level: 75, color: "from-gray-600 to-gray-800" },
-      { name: "tRPC", level: 70, color: "from-blue-600 to-purple-600" },
-      { name: "MySQL", level: 75, color: "from-blue-400 to-blue-600" },
+      { name: "Node.js & Express", level: 85, color: "from-green-500 to-emerald-500", evidence: "API REST e SSR Serverless nas plataformas SaaS e no App de IA Fitness." },
+      { name: "Trpc", level: 80, color: "from-blue-600 to-purple-600", evidence: "Comunicação Type-Safe end-to-end utilizada na plataforma do Brazukas Delivery." },
     ],
   },
   {
-    title: "Ferramentas",
+    title: "Banco de Dados",
     skills: [
-      { name: "Git/GitHub", level: 90, color: "from-gray-700 to-black" },
-      { name: "Vite", level: 85, color: "from-purple-500 to-pink-500" },
-      { name: "VS Code", level: 95, color: "from-blue-500 to-cyan-500" },
-      { name: "Figma", level: 70, color: "from-red-500 to-purple-500" },
+      { name: "MySQL", level: 85, color: "from-blue-400 to-blue-600", evidence: "Gestão robusta relacional no Brazukas Delivery e Plataformas de Usuários (Sage)." },
+      { name: "Drizzle ORM", level: 80, color: "from-orange-400 to-red-400", evidence: "Usado para modelagem segura e migrations em sistemas Full Stack recentes." },
     ],
   },
   {
-    title: "UI/UX",
+    title: "UI / Design",
     skills: [
-      { name: "Design Responsivo", level: 90, color: "from-pink-500 to-rose-500" },
-      { name: "Framer Motion", level: 80, color: "from-purple-500 to-indigo-500" },
-      { name: "Acessibilidade", level: 85, color: "from-green-500 to-teal-500" },
-      { name: "Prototipação", level: 75, color: "from-orange-500 to-yellow-500" },
+      { name: "Tailwind CSS", level: 95, color: "from-teal-500 to-cyan-500", evidence: "Design Systems responsivos e Pixel Perfect em 100% das Landing Pages." },
+      { name: "Framer Motion", level: 85, color: "from-purple-500 to-indigo-500", evidence: "Microinterações de alto impacto no portfólio oficial e E-book Vida Moderna." },
+    ],
+  },
+  {
+    title: "Automação / IA",
+    skills: [
+      { name: "Grok (xAI) / LLMs", level: 80, color: "from-gray-300 to-gray-500", evidence: "Integração Serverless de Chat-Widgets inteligentes para captação de Leads." },
+      { name: "N8N / Webhooks", level: 75, color: "from-red-500 to-orange-500", evidence: "Automações customizadas para disparo de notificações via WhatsApp." },
+    ],
+  },
+  {
+    title: "DevOps / Tools",
+    skills: [
+      { name: "Vercel / Edge", level: 90, color: "from-gray-700 to-black", evidence: "Hospedagem ágil e funções Serverless aplicadas nos 15 maiores cases." },
+      { name: "Git / GitHub", level: 95, color: "from-orange-500 to-red-500", evidence: "Versionamento contínuo em equipe (Ordem dos Seraphim)." },
     ],
   },
 ];
@@ -90,9 +96,14 @@ function SkillsSection() {
                       duration: 0.5,
                     }}
                   >
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-foreground font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                    <div className="flex flex-col mb-3">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-foreground font-semibold">{skill.name}</span>
+                        <span className="text-sm font-bold text-primary">{skill.level}%</span>
+                      </div>
+                      <span className="text-xs text-muted-foreground leading-tight italic">
+                        {skill.evidence}
+                      </span>
                     </div>
                     <div className="h-2 bg-muted rounded-full overflow-hidden">
                       <motion.div
