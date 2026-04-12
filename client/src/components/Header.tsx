@@ -22,8 +22,8 @@ export default function Header() {
             onClick={() => scrollToSection("hero")}
             className="flex items-center gap-2 text-2xl font-bold text-foreground hover:text-primary transition-colors"
           >
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20">
-              <span className="text-primary font-bold text-xl">Y</span>
+            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20 overflow-hidden">
+              <img src="/react-logo.png" alt="Logo React" className="w-8 h-8 object-contain" />
             </div>
           </button>
 

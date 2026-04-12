@@ -35,8 +35,10 @@ const SKILL_CATEGORIES = [
   {
     title: "Automação / IA",
     skills: [
-      { name: "Grok (xAI) / LLMs", level: 80, color: "from-gray-300 to-gray-500", evidence: "Integração Serverless de Chat-Widgets inteligentes para captação de Leads." },
-      { name: "N8N / Webhooks", level: 75, color: "from-red-500 to-orange-500", evidence: "Automações customizadas para disparo de notificações via WhatsApp." },
+      { name: "Gemini / LLMs", level: 90, color: "from-blue-400 to-cyan-400", evidence: "Implementação de assistentes de IA inteligentes e chat-widgets serverless." },
+      { name: "RAG & Vetores", level: 85, color: "from-indigo-400 to-purple-400", evidence: "Uso de Retrieval-Augmented Generation para consultas em bases de dados personalizadas." },
+      { name: "Prompt Engineering", level: 95, color: "from-orange-400 to-yellow-400", evidence: "Domínio de técnicas avançadas para extração máxima de performance dos modelos." },
+      { name: "N8N / Automações", level: 80, color: "from-red-500 to-orange-500", evidence: "Workflow de automação para disparos de WhatsApp e webhooks integrados." },
     ],
   },
   {
@@ -55,8 +57,17 @@ function SkillsSection() {
   const skillCategories = useMemo(() => SKILL_CATEGORIES, []);
 
   return (
-    <section id="skills" ref={ref} className="py-20 bg-card relative overflow-hidden">
-      <div className="container px-6">
+    <section id="skills" ref={ref} className="py-20 bg-background/60 backdrop-blur-sm relative overflow-hidden">
+      {/* Glow Effects similar to Hero */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[130px] rounded-full pointer-events-none" />
+
+      {/* Background Intercalado Átomo React */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.05] bg-[url('/react-logo.png')] bg-no-repeat bg-fixed bg-center" 
+        style={{ backgroundSize: '40%' }}
+      />
+      <div className="container px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

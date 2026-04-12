@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, Filter } from "lucide-react";
 import { useState, useRef } from "react";
 import { realProjects, projectCategories, type RealProject } from "@/data/realProjects";
@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export default function FeaturedProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Todos");
+  const [showAll, setShowAll] = useState(false);
   const allProjectsRef = useRef<HTMLDivElement>(null);
 
   const featuredProjects = realProjects.filter((p) => p.featured);
@@ -14,12 +15,25 @@ export default function FeaturedProjectsSection() {
     ? realProjects
     : realProjects.filter((p) => p.category === selectedCategory);
 
-  const scrollToAllProjects = () => {
-    allProjectsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const handleShowAllProjects = () => {
+    setShowAll(true);
+    setTimeout(() => {
+      allProjectsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
   };
 
   return (
-    <section id="projetos" className="py-20 bg-background relative overflow-hidden">
+    <section id="projetos" className="py-20 bg-background/60 backdrop-blur-sm relative overflow-hidden">
+      {/* Glow Effects similar to Hero */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+
+      {/* Background Intercalado Átomo React */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.05] bg-[url('/react-logo.png')] bg-no-repeat bg-fixed bg-center" 
+        style={{ backgroundSize: '40%' }}
+      />
+      
       {/* Featured Projects */}
       <div className="container mx-auto px-4 mb-32">
         <motion.div
@@ -38,7 +52,7 @@ export default function FeaturedProjectsSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjects.map((project, index) => (
+          {featuredProjects.slice(0, 6).map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
@@ -50,26 +64,36 @@ export default function FeaturedProjectsSection() {
           transition={{ delay: 0.6 }}
           className="text-center mt-12"
         >
-          <Button
-            onClick={scrollToAllProjects}
-            size="lg"
-            variant="outline"
-            className="group"
-          >
-            Ver Todos os Projetos
-            <motion.span
-              animate={{ y: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="ml-2"
+          {!showAll && (
+            <Button
+              onClick={handleShowAllProjects}
+              size="lg"
+              variant="outline"
+              className="group"
             >
-              ↓
-            </motion.span>
-          </Button>
+              Ver Todos os Projetos
+              <motion.span
+                animate={{ y: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+                className="ml-2"
+              >
+                ↓
+              </motion.span>
+            </Button>
+          )}
         </motion.div>
       </div>
 
       {/* All Projects */}
-      <div ref={allProjectsRef} className="container mx-auto px-4">
+      <AnimatePresence>
+        {showAll && (
+          <motion.div 
+            ref={allProjectsRef} 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            transition={{ duration: 0.5 }}
+            className="container mx-auto px-4"
+          >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,8 +143,10 @@ export default function FeaturedProjectsSection() {
               Nenhum projeto encontrado nesta categoria.
             </p>
           </motion.div>
+          )}
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </section>
   );
 }

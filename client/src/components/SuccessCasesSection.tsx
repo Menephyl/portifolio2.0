@@ -2,52 +2,64 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { TrendingUp, Users, Target, Zap } from "lucide-react";
+import { TrendingUp, Users, Target, Zap, Rocket } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 
 const SUCCESS_CASES = [
   {
     id: 1,
-    title: "Plataforma SaaS B2B",
-    client: "Prime Team",
-    metric: "300%",
-    metricLabel: "Aumento em retenção de clientes",
-    description: "Reestruturação completa da arquitetura do dashboard utilizando React e Next.js, melhorando a velocidade de renderização em 5x e engajando lojistas.",
-    icon: TrendingUp,
-    color: "text-green-500",
-    bg: "bg-green-500/10",
-  },
-  {
-    id: 2,
-    title: "EcoPlay Creations",
-    client: "E-commerce Sustentável",
-    metric: "45%",
-    metricLabel: "Crescimento na taxa de conversão",
-    description: "Desenvolvimento de uma vitrine virtual otimizada para SEO e acessibilidade, com um fluxo de checkout focado em UX, que alavancou as vendas no primeiro trimestre.",
-    icon: Target,
-    color: "text-blue-500",
-    bg: "bg-blue-500/10",
-  },
-  {
-    id: 3,
     title: "Brazukas Delivery",
     client: "Sistema de Food Delivery",
-    metric: "10k+",
-    metricLabel: "Pedidos processados no mês",
-    description: "Criação de toda a aplicação de ponta a ponta, desde o carrinho integrado com API de pagamento até a logística de motoboys, gerando escalabilidade real.",
+    metric: "Longo Prazo",
+    metricLabel: "Projeto contínuo no decorrer do ano",
+    description: "Criação de toda a aplicação de ponta a ponta, abrangendo a área de cliente, área de lojista e área de motoboy com escalabilidade real.",
     icon: Zap,
     color: "text-yellow-500",
     bg: "bg-yellow-500/10",
   },
   {
-    id: 4,
-    title: "Landing Page Fitness",
-    client: "Academias Independentes",
+    id: 2,
+    title: "Treinador Roth",
+    client: "Consultoria Esportiva",
     metric: "2x",
     metricLabel: "Mais leads qualificados captados",
-    description: "Redesign orientado a conversão (CRO) e funil de WhatsApp direto via call-to-action dinâmico com landing pages extremamente leves e de alto contraste.",
+    description: "Plataforma de conversão (CRO) integrada a Landing Page moderna, com funil de WhatsApp direto via call-to-action dinâmico para personal training.",
     icon: Users,
     color: "text-purple-500",
     bg: "bg-purple-500/10",
+  },
+  {
+    id: 3,
+    title: "Prime Team",
+    client: "Startup / Software House",
+    metric: "300%",
+    metricLabel: "Engajamento corporativo",
+    description: "Fundação de uma startup focada em reunir desenvolvedores TypeScript para construção de ecossistemas web e mobile e captação de projetos.",
+    icon: TrendingUp,
+    color: "text-green-500",
+    bg: "bg-green-500/10",
+  },
+  {
+    id: 4,
+    title: "EcoPlay Creations",
+    client: "Infoproduto Digital",
+    metric: "45%",
+    metricLabel: "Crescimento na taxa de conversão",
+    description: "Landing page de infoproduto vinculada a campanhas de marketing digital para venda de produtos físicos infantis, respeitando o meio ambiente.",
+    icon: Target,
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
+  },
+  {
+    id: 5,
+    title: "Projetos em Andamento",
+    client: "Novas Parcerias",
+    metric: "P&D",
+    metricLabel: "Desenvolvimento e Prototipagem",
+    description: "Atualmente focado em construir e aprimorar arquiteturas limpas com integração nativa de Inteligência Artificial para alavancar novas empresas.",
+    icon: Rocket,
+    color: "text-primary",
+    bg: "bg-primary/10",
   },
 ];
 
@@ -55,11 +67,14 @@ export default function SuccessCasesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    slidesToScroll: 1,
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      slidesToScroll: 1,
+    },
+    [Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })]
+  );
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
