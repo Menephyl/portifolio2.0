@@ -15,10 +15,10 @@ function HeroSection() {
   const [showYan3, setShowYan3] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowYan3(false);
-    }, 1600);
-    return () => clearTimeout(timer);
+    const timer = setInterval(() => {
+      setShowYan3(prev => !prev);
+    }, 1500);
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -221,17 +221,25 @@ function HeroSection() {
               {/* Image Container */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-cyan-400/20 p-1">
-                  <img
-                    src={showYan3 ? "/assets/yan3.png" : "/profile-professional.jpg"}
-                    alt="Yan Menephyl - Desenvolvedor Full-Stack"
-                    width="384"
-                    height="384"
-                    loading="eager"
-                    className="w-full h-full rounded-full object-cover border-4 border-background transition-opacity duration-500"
-                    onError={(e) => {
-                      if (showYan3) e.currentTarget.src = "/assets/yan3.jpg";
-                    }}
-                  />
+                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background">
+                    <img
+                      src="/assets/yan3.png"
+                      alt="Yan Menephyl - Dançarino"
+                      width="384"
+                      height="384"
+                      loading="eager"
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${showYan3 ? 'opacity-100' : 'opacity-0'}`}
+                      onError={(e) => { e.currentTarget.src = "/assets/yan3.jpg"; }}
+                    />
+                    <img
+                      src="/profile-professional.jpg"
+                      alt="Yan Menephyl - Desenvolvedor Full-Stack"
+                      width="384"
+                      height="384"
+                      loading="eager"
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${showYan3 ? 'opacity-0' : 'opacity-100'}`}
+                    />
+                  </div>
                 </div>
 
                 {/* Animated Border */}

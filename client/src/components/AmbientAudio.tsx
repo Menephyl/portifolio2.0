@@ -1,11 +1,30 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ReactPlayer from "react-player";
 import { Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AmbientAudio() {
   const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false); // Inicia desmutado mas pausado
+
+  useEffect(() => {
+    const handleInteraction = () => {
+      setPlaying(true);
+      ['click', 'keydown', 'scroll', 'touchstart'].forEach(evt => 
+        window.removeEventListener(evt, handleInteraction)
+      );
+    };
+
+    ['click', 'keydown', 'scroll', 'touchstart'].forEach(evt => 
+      window.addEventListener(evt, handleInteraction, { once: true })
+    );
+
+    return () => {
+      ['click', 'keydown', 'scroll', 'touchstart'].forEach(evt => 
+        window.removeEventListener(evt, handleInteraction)
+      );
+    };
+  }, []);
 
   const toggleAudio = () => {
     if (muted) {
@@ -19,15 +38,20 @@ export default function AmbientAudio() {
 
   return (
     <>
-      <div className="hidden">
+      <div className="fixed top-0 left-0 opacity-0 pointer-events-none w-1 h-1 z-[-1] overflow-hidden">
         <ReactPlayer
-          url="https://www.youtube.com/watch?v=jW9nf13XPvc"
+          url="https://www.youtube.com/watch?v=N2p_JFF4lR0"
           playing={playing}
           muted={muted}
           loop={true}
           volume={0.3}
-          width="0"
-          height="0"
+          width="1px"
+          height="1px"
+          config={{
+            youtube: {
+              playerVars: { start: 13, autoplay: 0 }
+            }
+          }}
         />
       </div>
 
