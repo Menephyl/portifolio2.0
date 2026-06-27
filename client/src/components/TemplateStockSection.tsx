@@ -51,6 +51,20 @@ export default function TemplateStockSection() {
             <Tag className="w-4 h-4" />
             Em média R$ 40,00 por template
           </div>
+          
+          <div className="mt-6 flex justify-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="relative inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-gradient-to-r from-primary/20 to-purple-500/20 border border-primary/50 text-foreground font-bold shadow-[0_0_15px_rgba(0,209,255,0.3)]"
+            >
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+              </span>
+              LOGO MAIS 100 PROJETOS!!!! E AGENTES DE IA AUTOMAÇÕES COM N8N!
+            </motion.div>
+          </div>
         </motion.div>
 
         <div className="relative max-w-7xl mx-auto">

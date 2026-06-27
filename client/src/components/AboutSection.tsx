@@ -92,7 +92,7 @@ function AboutSection() {
     <section id="about" ref={ref} className="py-20 bg-background/60 backdrop-blur-sm relative overflow-hidden">
       {/* Background Intercalado Átomo React */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('/react-logo.png')] bg-no-repeat bg-fixed bg-center" 
+        className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('/assets/reactatom.gif')] bg-no-repeat bg-fixed bg-center" 
         style={{ backgroundSize: '40%' }}
       />
       <div className="container px-6 relative z-10">
@@ -112,21 +112,38 @@ function AboutSection() {
           </p>
         </motion.div>
 
-        {/* Main Description */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="max-w-4xl mx-auto mb-16"
-        >
-          <p className="text-lg text-foreground/80 leading-relaxed text-center">
-            Gosto de criar aplicações que façam sentido para quem usa. Analiso os
-            desafios de cada projeto e transformo ideias em soluções funcionais,
-            claras e bem estruturadas. Valorizo código limpo, boas práticas e
-            aprendizado constante, usando cada experiência para evoluir
-            tecnicamente e entregar impacto real.
-          </p>
-        </motion.div>
+        {/* Main Description & Photo */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16 max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              Gosto de criar aplicações que façam sentido para quem usa. Analiso os
+              desafios de cada projeto e transformo ideias em soluções funcionais,
+              claras e bem estruturadas. Valorizo código limpo, boas práticas e
+              aprendizado constante, usando cada experiência para evoluir
+              tecnicamente e entregar impacto real.
+            </p>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="flex justify-center"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-cyan-400/20 rounded-2xl transform rotate-3" />
+              <img
+                src="/assets/yan2.png"
+                alt="Yan Menephyl"
+                className="relative rounded-2xl shadow-xl w-full max-w-sm object-cover border-2 border-primary/20 transform hover:-rotate-2 transition-transform duration-300"
+              />
+            </div>
+          </motion.div>
+        </div>
 
         {/* Values Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-20">

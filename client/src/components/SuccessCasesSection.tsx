@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { TrendingUp, Users, Target, Zap, Rocket } from "lucide-react";
+import { TrendingUp, Users, Target, Zap, Rocket, Heart } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 
 const SUCCESS_CASES = [
@@ -60,6 +60,17 @@ const SUCCESS_CASES = [
     icon: Rocket,
     color: "text-primary",
     bg: "bg-primary/10",
+  },
+  {
+    id: 6,
+    title: "Fono de Bebês",
+    client: "Saúde / Fonoaudiologia",
+    metric: "Alta",
+    metricLabel: "Conversão Institucional",
+    description: "Landing page acolhedora para apresentação de serviços de fonoaudiologia infantil, focada em segurança e profissionalismo.",
+    icon: Heart,
+    color: "text-rose-500",
+    bg: "bg-rose-500/10",
   },
 ];
 

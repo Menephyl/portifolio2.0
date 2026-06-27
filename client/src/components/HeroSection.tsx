@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Instagram, FileText } from "lucide-react";
 import { Button } from "./ui/button";
 import { Typewriter } from "./ui/typewriter";
-import { memo, useCallback } from "react";
+import { memo, useCallback, useState, useEffect } from "react";
 
 function HeroSection() {
   const scrollToSection = useCallback((sectionId: string) => {
@@ -10,6 +10,15 @@ function HeroSection() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  }, []);
+
+  const [showYan3, setShowYan3] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowYan3(false);
+    }, 1600);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -33,9 +42,9 @@ function HeroSection() {
               transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
             >
-              <span className="text-2xl">👋</span>
+              <span className="text-2xl">🤖👨‍💻</span>
               <span className="text-sm text-muted-foreground">
-                Olá! Sou Yan Menephyl
+                Eaeee! Sou Yan Menephyl ! Estou aqui pra somar!
               </span>
             </motion.div>
 
@@ -49,7 +58,7 @@ function HeroSection() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <Typewriter
                   texts={[
-                    "De Dançarino de Salão a Software Engineer.",
+                    "De Dançarino de Salão a Analista de Sistemas.",
                     "Desenvolvedor Frontend (React & TypeScript).",
                     "Desenvolvedor Full Stack (Node.js & APIs).",
                     "Tech Lead & CEO — Prime Team.",
@@ -69,9 +78,22 @@ function HeroSection() {
               transition={{ delay: 0.6 }}
               className="text-lg text-muted-foreground leading-relaxed max-w-xl"
             >
+              Gestão de IA - Automações que convertem e atendem todo dia toda hora!
               Transformo ideias complexas em plataformas escaláveis com React, Node.js e IA.
               Experiência comprovada em entrega de produtos estruturados do design à arquitetura de dados.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-primary/10 border border-primary/30 text-primary font-bold shadow-[0_0_10px_rgba(0,209,255,0.2)]"
+            >
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+              </span>
+              LOGO MAIS PÁGINA DE PERSONAL DANCER!!
+            </motion.div>
 
             {/* CTAs */}
             <motion.div
@@ -108,6 +130,23 @@ function HeroSection() {
                   />
                 </svg>
               </Button>
+              <a
+                href="https://www.youtube.com/@menephylDev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="lg"
+                  className="bg-[#FF0000] hover:bg-[#FF0000]/90 text-white font-semibold px-8 py-6 text-base rounded-lg shadow-lg shadow-[#FF0000]/30 transition-all duration-300 flex items-center gap-2 group relative overflow-hidden"
+                >
+                  <span className="absolute inset-0 w-full h-full bg-white/10 group-hover:bg-transparent transition-colors"></span>
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                  </span>
+                  <span className="relative font-bold tracking-wide">LIVE NO YOUTUBE</span>
+                </Button>
+              </a>
             </motion.div>
 
             {/* Social Links */}
@@ -183,12 +222,15 @@ function HeroSection() {
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-cyan-400/20 p-1">
                   <img
-                    src="/profile-professional.jpg"
+                    src={showYan3 ? "/assets/yan3.png" : "/profile-professional.jpg"}
                     alt="Yan Menephyl - Desenvolvedor Full-Stack"
                     width="384"
                     height="384"
                     loading="eager"
-                    className="w-full h-full rounded-full object-cover border-4 border-background"
+                    className="w-full h-full rounded-full object-cover border-4 border-background transition-opacity duration-500"
+                    onError={(e) => {
+                      if (showYan3) e.currentTarget.src = "/assets/yan3.jpg";
+                    }}
                   />
                 </div>
 
