@@ -13,7 +13,19 @@ export interface RealProject {
 }
 
 export const realProjects: RealProject[] = [
-  // THE 15 NEW FEATURED PROJECTS (Prioritized)
+  // THE NEW FEATURED PROJECTS (Prioritized)
+  {
+    id: 0,
+    title: "Site Psicólogo 8-bits",
+    description: "Landing page temática 8-bits para Psicólogo focado em Gamers e Devs.",
+    longDescription: "Projeto desenvolvido para cliente com temática pixel art 8-bits, focado no público gamer e desenvolvedores, otimizada para alta conversão e agendamento de consultas.",
+    image: "/assets/psicologo8bits.png",
+    tags: ["Landing Page", "8-bits", "Psicologia"],
+    category: "Landing Pages",
+    technologies: ["React", "Tailwind CSS", "TypeScript"],
+    liveUrl: "#",
+    featured: true,
+  },
   {
     id: 1,
     title: "Brazukas Delivery",
@@ -243,6 +255,47 @@ export const realProjects: RealProject[] = [
     technologies: ["React", "TypeScript", "Tailwind"],
     liveUrl: "https://brazukasspartners.vercel.app/",
     featured: false,
+  },
+
+  // PROJETOS EM ANDAMENTO
+  {
+    id: 19,
+    title: "Projeto em Andamento 01 - Menephyl Burguer",
+    description: "Sistema Full-Stack de uma hamburgueria com API robusta.",
+    longDescription: "Plataforma completa para gestão de hamburgueria, com área do cliente, painel admin e API dedicada para processamento de pedidos.",
+    image: "/assets/BrazukasDelivery.png",
+    tags: ["Em Andamento", "Full-Stack", "Delivery"],
+    category: "Delivery / Food",
+    technologies: ["React", "Node.js", "API"],
+    liveUrl: "https://github.com/Menephyl/Menephyl_dev_burguer",
+    githubUrl: "https://github.com/Menephyl/menephyl_dev_burguer_api",
+    featured: true,
+  },
+  {
+    id: 20,
+    title: "Projeto em Andamento 02 - DevBills API",
+    description: "API de um sistema financeiro moderno.",
+    longDescription: "Backend robusto para um sistema de gestão financeira pessoal e empresarial, com foco em segurança e performance. Frontend em desenvolvimento.",
+    image: "/assets/painelmonitoriamento.png",
+    tags: ["Em Andamento", "API", "Financeiro"],
+    category: "Sistemas / Admin",
+    technologies: ["Node.js", "TypeScript", "API"],
+    liveUrl: "https://github.com/Menephyl/menephyl-devbills-api",
+    githubUrl: "https://github.com/Menephyl/menephyl-devbills-api",
+    featured: true,
+  },
+  {
+    id: 21,
+    title: "Projeto em Andamento 03 - ParkingOps Enterprise .NET",
+    description: "API de sistema de estacionamento em C# e .NET.",
+    longDescription: "Arquitetura escalável construída em .NET para gerenciamento de vagas de estacionamento, controle de pátio e faturamento.",
+    image: "/assets/primeTeam.png",
+    tags: ["Em Andamento", "C#", ".NET", "API"],
+    category: "Sistemas / Admin",
+    technologies: ["C#", ".NET", "Swagger"],
+    liveUrl: "https://github.com/Menephyl/ParkingOps-Enterprise-.NET",
+    githubUrl: "https://github.com/Menephyl/ParkingOps-Enterprise-.NET",
+    featured: true,
   },
 ];
 

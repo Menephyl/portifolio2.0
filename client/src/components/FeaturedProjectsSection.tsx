@@ -3,13 +3,26 @@ import { ExternalLink, Github, Filter } from "lucide-react";
 import { useState, useRef } from "react";
 import { realProjects, projectCategories, type RealProject } from "@/data/realProjects";
 import { Button } from "@/components/ui/button";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback } from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function FeaturedProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Todos");
   const [showAll, setShowAll] = useState(false);
   const allProjectsRef = useRef<HTMLDivElement>(null);
 
-  const featuredProjects = realProjects.filter((p) => p.featured);
+  const featuredProjects = realProjects.filter((p) => p.featured && !p.tags.includes("Em Andamento"));
+  const inProgressProjects = realProjects.filter((p) => p.tags.includes("Em Andamento"));
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start", slidesToScroll: 1 },
+    [Autoplay({ delay: 3500, stopOnInteraction: true })]
+  );
+  
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
   
   const filteredProjects = selectedCategory === "Todos"
     ? realProjects
@@ -56,6 +69,51 @@ export default function FeaturedProjectsSection() {
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
+
+        {/* Projetos em Andamento - Carrossel */}
+        {inProgressProjects.length > 0 && (
+          <div className="mt-20">
+            <h3 className="text-3xl font-bold text-center mb-10">
+              Projetos em <span className="text-primary">Andamento</span>
+            </h3>
+            <div className="relative max-w-6xl mx-auto">
+              <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex gap-6 py-4 px-2">
+                  {inProgressProjects.map((project, index) => (
+                    <motion.div
+                      key={project.id}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
+                    >
+                      <ProjectCard project={project} index={index} />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              <button
+                onClick={scrollPrev}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
+                aria-label="Anterior"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={scrollNext}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
+                aria-label="Próximo"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
 
         <motion.div
           initial={{ opacity: 0 }}

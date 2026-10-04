@@ -62,7 +62,7 @@ function HeroSection() {
                     "Desenvolvedor Frontend (React & TypeScript).",
                     "Desenvolvedor Full Stack (Node.js & APIs).",
                     "Tech Lead & CEO — Prime Team.",
-                    "+30 Projetos Colocados em Produção."
+                    "+130 Templates de Sites e 16 Sistemas em Produção."
                   ]}
                   typingSpeed={60}
                   deletingSpeed={30}
@@ -78,7 +78,7 @@ function HeroSection() {
               transition={{ delay: 0.6 }}
               className="text-lg text-muted-foreground leading-relaxed max-w-xl"
             >
-              Gestão de IA - Automações que convertem e atendem todo dia toda hora!
+              Gestão de IA e Automações com n8n - Sistemas que convertem e atendem todo dia, toda hora!
               Transformo ideias complexas em plataformas escaláveis com React, Node.js e IA.
               Experiência comprovada em entrega de produtos estruturados do design à arquitetura de dados.
             </motion.p>
