@@ -22,20 +22,7 @@ export default function ContactSection() {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const submitMutation = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Mensagem enviada com sucesso!", {
-        description: "Entrarei em contato em breve.",
-      });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setErrors({});
-    },
-    onError: (error) => {
-      toast.error("Erro ao enviar mensagem", {
-        description: error.message,
-      });
-    },
-  });
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -75,7 +62,11 @@ export default function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      submitMutation.mutate(formData);
+      const text = `Olá! Meu nome é ${formData.name}.\nEmail: ${formData.email}\nAssunto: ${formData.subject}\n\nMensagem: ${formData.message}`;
+      const encodedText = encodeURIComponent(text);
+      window.open(`https://wa.me/5535984688884?text=${encodedText}`, '_blank');
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setShowForm(false);
     }
   };
 
@@ -252,25 +243,10 @@ export default function ContactSection() {
             <Button
               type="submit"
               size="lg"
-              disabled={submitMutation.isPending}
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
             >
-              {submitMutation.isPending ? (
-                <>
-                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Enviando...
-                </>
-              ) : submitMutation.isSuccess ? (
-                <>
-                  <CheckCircle2 className="w-5 h-5 mr-2" />
-                  Enviado!
-                </>
-              ) : (
-                <>
-                  <Send className="w-5 h-5 mr-2" />
-                  Enviar Mensagem
-                </>
-              )}
+              <Send className="w-5 h-5 mr-2" />
+              Enviar para o WhatsApp
             </Button>
           </form>
           </div>

@@ -15,6 +15,7 @@ const CERTIFICATES = [
   { id: 8, title: "HTML Essencial", src: "/assets/99-Certificado - Dev Club - Yan Isonel Pereira - HTML - Front End Club.png" },
   { id: 9, title: "Full Stack Dev Club", src: "pendente" },
   { id: 10, title: "Tecnólogo em Análise e Desenvolvimento de Sistemas", src: "pendente" },
+  { id: 11, title: "Gestor de IA", src: "pendente" },
 ];
 
 export default function CertificationsSection() {

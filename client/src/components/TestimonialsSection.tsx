@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useMemo, memo, useRef, useState } from "react";
-import { X, ZoomIn } from "lucide-react";
+import { X } from "lucide-react";
 
 // Array de imagens dos depoimentos reais (screenshots do LinkedIn)
 const RECOMMENDATION_IMAGES = [
@@ -19,7 +19,7 @@ const RECOMMENDATION_IMAGES = [
 function TestimonialsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "center", slidesToScroll: 1 },
@@ -74,7 +74,7 @@ function TestimonialsSection() {
                 >
                   <div 
                     className="group relative bg-[#0D0D0D]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-2 shadow-2xl transition-all duration-500 hover:border-primary/40 hover:shadow-primary/10 overflow-hidden cursor-pointer"
-                    onClick={() => setSelectedImage(imgSrc)}
+                    onClick={() => window.open('https://www.linkedin.com/in/yanisonelpereira', '_blank')}
                   >
                     {/* Glossy Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
@@ -91,7 +91,7 @@ function TestimonialsSection() {
                         }}
                       />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-2xl">
-                        <ZoomIn className="w-12 h-12 text-white" />
+                        <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.329 0-2.136.917-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                       </div>
                     </div>
 
@@ -146,26 +146,6 @@ function TestimonialsSection() {
         </motion.div>
       </div>
 
-      {/* Image Modal for Zoom */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 cursor-zoom-out"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button 
-            className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors text-white"
-            onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
-          >
-            <X className="w-6 h-6" />
-          </button>
-          <img 
-            src={selectedImage} 
-            alt="Depoimento Expandido" 
-            className="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl border border-white/20"
-            onClick={(e) => e.stopPropagation()} // allows users to pan/zoom if browser supports it without closing
-          />
-        </div>
-      )}
     </section>
   );
 }
