@@ -23,7 +23,7 @@ const SUCCESS_CASES = [
     client: "Consultoria Esportiva",
     metric: "2x",
     metricLabel: "Mais leads qualificados captados",
-    description: "Plataforma de conversão (CRO) integrada a Landing Page moderna, com funil de WhatsApp direto via call-to-action dinâmico para personal training.",
+    description: "Plataforma de conversão integrada a Landing Page moderna, com funil de WhatsApp. Possui um agente de IA (Inteligência Artificial) focado em atender os leads e direcioná-los para o fechamento.",
     icon: Users,
     color: "text-purple-500",
     bg: "bg-purple-500/10",

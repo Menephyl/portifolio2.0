@@ -41,8 +41,8 @@ export const realProjects: RealProject[] = [
   {
     id: 2,
     title: "Treinador Roth",
-    description: "Pagina que vende os planos de personal trainer integrado com o myfit, onde os alunos podem comprar planos e ter acesso a rotina de treino e dieta no app myfit.",
-    longDescription: "Site moderno focado na atração de alunos e agendamento de consultoria de alta performance.",
+    description: "Página de conversão de personal trainer com assistente de IA integrado para atendimento.",
+    longDescription: "Site moderno focado na atração de alunos e agendamento de consultoria de alta performance. Destaque: Conta com um agente de IA inteligente para atender e direcionar o cliente diretamente para o contato no WhatsApp, otimizando o fechamento.",
     image: "/assets/personaltrainer.png",
     tags: ["Fitness", "Landing Page", "Performance", "React"],
     category: "Fitness / Academia",

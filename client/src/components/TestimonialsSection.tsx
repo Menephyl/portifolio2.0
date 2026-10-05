@@ -2,7 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { Quote } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useCallback, useMemo, memo, useRef } from "react";
+import { useCallback, useMemo, memo, useRef, useState } from "react";
+import { X, ZoomIn } from "lucide-react";
 
 // Array de imagens dos depoimentos reais (screenshots do LinkedIn)
 const RECOMMENDATION_IMAGES = [
@@ -18,6 +19,7 @@ const RECOMMENDATION_IMAGES = [
 function TestimonialsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "center", slidesToScroll: 1 },
@@ -31,8 +33,8 @@ function TestimonialsSection() {
     <section id="testimonials" ref={ref} className="py-24 bg-background/40 backdrop-blur-md relative overflow-hidden">
       {/* Background Animated Blue Glows (Hero Style) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 blur-[150px] rounded-full opacity-50 animate-pulse" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 blur-[130px] rounded-full opacity-30" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-primary/20 blur-[150px] rounded-full opacity-50 animate-pulse" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-cyan-500/10 blur-[130px] rounded-full opacity-30" />
       </div>
 
       {/* Background Intercalado Átomo React */}
@@ -70,21 +72,28 @@ function TestimonialsSection() {
                   transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
                   className="flex-[0_0_100%] md:flex-[0_0_85%] lg:flex-[0_0_75%] min-w-0"
                 >
-                  <div className="group relative bg-[#0D0D0D]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-2 shadow-2xl transition-all duration-500 hover:border-primary/40 hover:shadow-primary/10 overflow-hidden">
+                  <div 
+                    className="group relative bg-[#0D0D0D]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-2 shadow-2xl transition-all duration-500 hover:border-primary/40 hover:shadow-primary/10 overflow-hidden cursor-pointer"
+                    onClick={() => setSelectedImage(imgSrc)}
+                  >
                     {/* Glossy Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
                     
                     {/* LinkedIn Print Image */}
-                    <img
-                      src={imgSrc}
-                      alt={`Depoimento LinkedIn ${index + 1}`}
-                      className="w-full h-auto rounded-2xl shadow-inner transition-transform duration-700 group-hover:scale-[1.01]"
-                      loading="lazy"
-                      onError={(e) => {
-                        // Se o recomend 7 ainda não existir, oculta o slide ou mostra placeholder
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
+                    <div className="relative">
+                      <img
+                        src={imgSrc}
+                        alt={`Depoimento LinkedIn ${index + 1}`}
+                        className="w-full h-auto rounded-2xl shadow-inner transition-transform duration-700 group-hover:scale-[1.01]"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-2xl">
+                        <ZoomIn className="w-12 h-12 text-white" />
+                      </div>
+                    </div>
 
                     {/* Badge de Verificado */}
                     <div className="absolute top-6 right-6 bg-[#0A66C2] text-white p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-lg">
@@ -136,6 +145,27 @@ function TestimonialsSection() {
           </a>
         </motion.div>
       </div>
+
+      {/* Image Modal for Zoom */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 cursor-zoom-out"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors text-white"
+            onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <img 
+            src={selectedImage} 
+            alt="Depoimento Expandido" 
+            className="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl border border-white/20"
+            onClick={(e) => e.stopPropagation()} // allows users to pan/zoom if browser supports it without closing
+          />
+        </div>
+      )}
     </section>
   );
 }
