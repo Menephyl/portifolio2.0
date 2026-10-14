@@ -51,7 +51,7 @@ export const staticProjects: Project[] = [
     fullDescription: "Portifolio oficial desenvolvido com Javascript, HTML5 e CSS. É uma Landing page com menu lateral e conteúdo dinâmico. O mesmo apresenta os projetos, habilidades, serviços e blogs de Yan Menephyl",
     technologies: ["JavaScript", "HTML5", "CSS3"],
     image: "/projects/cv-online.jpg",
-    demoUrl: "https://cv-online-yan.vercel.app",
+    demoUrl: "https://ymenephyl.vercel.app",
     githubUrl: "https://github.com/Menephyl/Y_portifolioY",
     featured: false,
   },

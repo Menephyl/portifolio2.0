@@ -289,7 +289,7 @@ export const realProjects: RealProject[] = [
     title: "Projeto em Andamento 03 - ParkingOps Enterprise .NET",
     description: "API de sistema de estacionamento em C# e .NET.",
     longDescription: "Arquitetura escalável construída em .NET para gerenciamento de vagas de estacionamento, controle de pátio e faturamento.",
-    image: "/assets/andamento03.png",
+    image: "/assets/andamento03.jpg",
     tags: ["Em Andamento", "C#", ".NET", "API"],
     category: "Sistemas / Admin",
     technologies: ["C#", ".NET", "Swagger"],
