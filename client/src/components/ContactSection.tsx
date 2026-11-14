@@ -77,18 +77,18 @@ export default function ContactSection() {
         className="absolute inset-0 pointer-events-none opacity-[0.07] bg-[url('/react-logo.png')] bg-no-repeat bg-fixed bg-center" 
         style={{ backgroundSize: '50%' }}
       />
-      <div className="container px-6 relative z-10">
+      <div className="container px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Vamos Trabalhar Juntos?
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg mb-10">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg mb-8 sm:mb-10">
             Entre em contato comigo ou baixe meu currículo e vamos tirar seu projeto do papel.
           </p>
 
@@ -112,7 +112,7 @@ export default function ContactSection() {
                 </Button>
               </a>
               <a href="/assets/yan_isonel_full_stack.pdf" download="Curriculo_Yan_Isonel_Pereira.pdf" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-blue-500 text-blue-500 hover:bg-blue-500/10">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-slate-700 text-slate-200 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-400">
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                   Baixar Currículo
                 </Button>
@@ -128,7 +128,7 @@ export default function ContactSection() {
             transition={{ duration: 0.5 }}
             className="max-w-2xl mx-auto"
           >
-          <div className="bg-card/30 backdrop-blur-xl border border-primary/20 rounded-2xl p-8 shadow-2xl space-y-6 relative overflow-hidden">
+          <div className="bg-card/40 backdrop-blur-xl border border-primary/20 rounded-2xl p-5 sm:p-8 shadow-2xl space-y-6 relative overflow-hidden">
             {/* Background internal glow */}
             <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 blur-3xl rounded-full pointer-events-none" />
             

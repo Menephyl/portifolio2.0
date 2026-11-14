@@ -31,15 +31,15 @@ function TestimonialsSection() {
 
   return (
     <section id="testimonials" ref={ref} className="py-24 bg-background/40 backdrop-blur-md relative overflow-hidden">
-      {/* Background Animated Blue Glows (Hero Style) */}
+      {/* Background Animated Emerald Glows */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-primary/20 blur-[150px] rounded-full opacity-50 animate-pulse" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-cyan-500/10 blur-[130px] rounded-full opacity-30" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-emerald-500/10 blur-[150px] rounded-full opacity-50 animate-pulse" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-slate-400/5 blur-[130px] rounded-full opacity-30" />
       </div>
 
       {/* Background Intercalado Átomo React */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.06] bg-[url('/react-logo.png')] bg-no-repeat bg-fixed bg-center" 
+        className="absolute inset-0 pointer-events-none opacity-[0.04] bg-[url('/react-logo.png')] bg-no-repeat bg-fixed bg-center" 
         style={{ backgroundSize: '50%' }}
       />
 
@@ -52,9 +52,9 @@ function TestimonialsSection() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">
-            O que dizem de <span className="text-primary bg-clip-text">Yan</span>
+            O que dizem de <span className="text-emerald-400">Yan</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-cyan-400 mx-auto rounded-full mb-10 shadow-[0_0_15px_rgba(0,209,255,0.5)]" />
+          <div className="w-24 h-1.5 bg-gradient-to-r from-emerald-500 to-emerald-400 mx-auto rounded-full mb-10 shadow-[0_0_15px_rgba(16,185,129,0.3)]" />
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
             Depoimentos reais extraídos diretamente do meu perfil no <span className="text-primary font-bold">LinkedIn</span>.
           </p>

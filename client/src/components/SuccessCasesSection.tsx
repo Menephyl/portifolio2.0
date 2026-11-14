@@ -10,12 +10,12 @@ const SUCCESS_CASES = [
     id: 1,
     title: "Brazukas Delivery",
     client: "Sistema de Food Delivery",
-    metric: "Longo Prazo",
-    metricLabel: "Projeto contínuo no decorrer do ano",
+    metric: "+R$ 1.8M",
+    metricLabel: "Volume transacionado & escalabilidade contínua",
     description: "Criação de toda a aplicação de ponta a ponta, abrangendo a área de cliente, área de lojista e área de motoboy com escalabilidade real.",
     icon: Zap,
-    color: "text-yellow-500",
-    bg: "bg-yellow-500/10",
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/10",
   },
   {
     id: 2,
@@ -25,8 +25,8 @@ const SUCCESS_CASES = [
     metricLabel: "Mais leads qualificados captados",
     description: "Plataforma de conversão integrada a Landing Page moderna, com funil de WhatsApp. Possui um agente de IA (Inteligência Artificial) focado em atender os leads e direcioná-los para o fechamento.",
     icon: Users,
-    color: "text-purple-500",
-    bg: "bg-purple-500/10",
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/10",
   },
   {
     id: 3,
@@ -36,8 +36,8 @@ const SUCCESS_CASES = [
     metricLabel: "Engajamento corporativo",
     description: "Fundação de uma startup focada em reunir desenvolvedores TypeScript para construção de ecossistemas web e mobile e captação de projetos.",
     icon: TrendingUp,
-    color: "text-green-500",
-    bg: "bg-green-500/10",
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/10",
   },
   {
     id: 4,
@@ -47,8 +47,8 @@ const SUCCESS_CASES = [
     metricLabel: "Crescimento na taxa de conversão",
     description: "Landing page de infoproduto vinculada a campanhas de marketing digital para venda de produtos físicos infantis, respeitando o meio ambiente.",
     icon: Target,
-    color: "text-blue-500",
-    bg: "bg-blue-500/10",
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/10",
   },
   {
     id: 5,
@@ -156,25 +156,48 @@ export default function SuccessCasesSection() {
             </div>
           </div>
 
-          {/* Nav Buttons */}
+          {/* Desktop Nav Buttons */}
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 lg:-translate-x-6 w-11 h-11 rounded-full bg-background border border-border items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
             aria-label="Anterior"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 lg:translate-x-6 w-11 h-11 rounded-full bg-background border border-border items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
             aria-label="Próximo"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
+
+          {/* Mobile Navigation */}
+          <div className="flex md:hidden justify-center items-center gap-4 mt-6">
+            <button
+              onClick={scrollPrev}
+              className="w-9 h-9 rounded-full bg-card border border-border flex items-center justify-center shadow"
+              aria-label="Anterior"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <span className="text-xs text-muted-foreground">Deslize para ver mais cases</span>
+            <button
+              onClick={scrollNext}
+              className="w-9 h-9 rounded-full bg-card border border-border flex items-center justify-center shadow"
+              aria-label="Próximo"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>

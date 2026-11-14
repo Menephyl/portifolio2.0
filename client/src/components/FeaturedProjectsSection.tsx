@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Filter } from "lucide-react";
+import { ExternalLink, Github, Filter, GraduationCap, TrendingUp, Sparkles } from "lucide-react";
 import { useState, useRef } from "react";
 import { realProjects, projectCategories, type RealProject } from "@/data/realProjects";
 import { Button } from "@/components/ui/button";
@@ -23,7 +23,6 @@ export default function FeaturedProjectsSection() {
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
-  
   const filteredProjects = selectedCategory === "Todos"
     ? realProjects
     : realProjects.filter((p) => p.category === selectedCategory);
@@ -37,7 +36,8 @@ export default function FeaturedProjectsSection() {
 
   return (
     <section id="projetos" className="py-20 bg-background/60 backdrop-blur-sm relative overflow-hidden">
-      {/* Glow Effects similar to Hero */}
+      <div id="projects" className="absolute -top-24 pointer-events-none" />
+      {/* Glow Effects */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -48,23 +48,23 @@ export default function FeaturedProjectsSection() {
       />
       
       {/* Featured Projects */}
-      <div className="container mx-auto px-4 mb-32">
+      <div className="container mx-auto px-4 sm:px-6 mb-24 md:mb-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Projetos em <span className="text-primary">Destaque</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
             Explorando uma base rica de <strong className="text-primary">+30 projetos em produção</strong> através de arquitetura Full-Stack, AI Engineering e UX Design de alta resolução.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {featuredProjects.slice(0, 6).map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
@@ -72,13 +72,16 @@ export default function FeaturedProjectsSection() {
 
         {/* Projetos em Andamento - Carrossel */}
         {inProgressProjects.length > 0 && (
-          <div className="mt-20">
-            <h3 className="text-3xl font-bold text-center mb-10">
+          <div className="mt-16 sm:mt-20">
+            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-3">
               Projetos em <span className="text-primary">Andamento</span>
             </h3>
-            <div className="relative max-w-6xl mx-auto">
+            <p className="text-center text-muted-foreground text-sm max-w-xl mx-auto mb-8 sm:mb-10">
+              Sistemas e arquiteturas em desenvolvimento contínuo sincronizados com repositórios no GitHub.
+            </p>
+            <div className="relative max-w-6xl mx-auto px-1 sm:px-4">
               <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex gap-6 py-4 px-2">
+                <div className="flex gap-4 sm:gap-6 py-4 px-1">
                   {inProgressProjects.map((project, index) => (
                     <motion.div
                       key={project.id}
@@ -86,31 +89,60 @@ export default function FeaturedProjectsSection() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.5 }}
-                      className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
+                      className="flex-[0_0_100%] sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
                     >
                       <ProjectCard project={project} index={index} />
                     </motion.div>
                   ))}
                 </div>
               </div>
+
+              {/* Desktop Nav Arrows */}
               <button
                 onClick={scrollPrev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 lg:-translate-x-6 w-11 h-11 rounded-full bg-background border border-border items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
                 aria-label="Anterior"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <button
                 onClick={scrollNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
+                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 lg:translate-x-6 w-11 h-11 rounded-full bg-background border border-border items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 shadow-lg z-10"
                 aria-label="Próximo"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
+
+              {/* Mobile Swipe Buttons */}
+              <div className="flex md:hidden justify-center items-center gap-4 mt-4">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={scrollPrev}
+                  className="rounded-full h-9 w-9 p-0"
+                  aria-label="Anterior"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </Button>
+                <span className="text-xs text-muted-foreground">Deslize para ver mais</span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={scrollNext}
+                  className="rounded-full h-9 w-9 p-0"
+                  aria-label="Próximo"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Button>
+              </div>
             </div>
           </div>
         )}
@@ -166,16 +198,23 @@ export default function FeaturedProjectsSection() {
             Explore o escopo integral de mais de 30 projetos distribuídos por nichos estratégicos.
           </p>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-3">
+          {/* Category Filters Orientados a Resultados */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 max-w-5xl mx-auto px-2">
             {projectCategories.map((category) => (
               <Button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 variant={selectedCategory === category ? "default" : "outline"}
-                className="transition-all duration-300"
+                size="sm"
+                className={`transition-all duration-300 text-xs sm:text-sm rounded-lg ${
+                  selectedCategory === category 
+                    ? "shadow-lg shadow-primary/25 bg-primary text-primary-foreground font-semibold" 
+                    : "hover:border-primary/50"
+                }`}
               >
-                {category === "Todos" && <Filter className="w-4 h-4 mr-2" />}
+                {category === "Todos" && <Filter className="w-3.5 h-3.5 mr-1.5" />}
+                {category === "Captação & Vendas de Alta Conversão" && <TrendingUp className="w-3.5 h-3.5 mr-1.5" />}
+                {category === "Automação & Atendimento com IA" && <Sparkles className="w-3.5 h-3.5 mr-1.5" />}
                 {category}
               </Button>
             ))}
@@ -184,7 +223,7 @@ export default function FeaturedProjectsSection() {
 
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {filteredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
@@ -215,92 +254,146 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project, index }: ProjectCardProps) {
+  const hasLiveUrl = project.liveUrl && project.liveUrl !== "#";
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="group relative bg-card border border-border rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300"
+      transition={{ delay: index * 0.08, duration: 0.45 }}
+      className="group relative bg-card border border-border/80 rounded-xl overflow-hidden hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full"
     >
-      {/* Project Image */}
-      <div className="relative h-56 overflow-hidden bg-muted">
+      {/* Project Image (Clean & Sem poluição de texto) */}
+      <div className="relative h-48 sm:h-52 overflow-hidden bg-muted/60 shrink-0">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+          loading="lazy"
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = "/assets/BrazukasDelivery.png";
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
-        {/* Category Badge */}
-        <div className="absolute top-4 right-4">
-          <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-semibold rounded-full backdrop-blur-sm">
+        {/* Category Badge - Discreto e Sem cobrir imagem */}
+        <div className="absolute top-3 right-3">
+          <span className="px-2.5 py-1 bg-background/85 backdrop-blur-md border border-border/70 text-foreground text-[11px] font-medium rounded-full shadow-sm">
             {project.category}
           </span>
         </div>
       </div>
 
       {/* Project Info */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+      <div className="p-5 sm:p-6 flex flex-col flex-1">
+        <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-1">
           {project.title}
         </h3>
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+        <p className="text-muted-foreground text-xs sm:text-sm mb-3 line-clamp-2 leading-relaxed">
           {project.description}
         </p>
 
+        {/* Business Result / Impacto do Projeto */}
+        {project.businessResult && (
+          <div className="mb-3.5 p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+            <p className="text-[11px] font-bold text-emerald-400 mb-1 flex items-center gap-1.5">
+              <TrendingUp className="w-3.5 h-3.5 shrink-0" />
+              <span>Impacto Financeiro / ROI:</span>
+            </p>
+            <p className="text-xs text-foreground font-medium leading-snug">
+              {project.businessResult}
+            </p>
+          </div>
+        )}
+
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-3">
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="px-2 py-1 bg-muted text-xs rounded-md text-foreground"
+              className={`px-2 py-0.5 text-[11px] rounded-md font-medium ${
+                tag === "Em Andamento" 
+                  ? "bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30" 
+                  : tag === "Acadêmico"
+                  ? "bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-500/30"
+                  : "bg-muted text-foreground"
+              }`}
             >
               {tag}
             </span>
           ))}
           {project.tags.length > 3 && (
-            <span className="px-2 py-1 bg-muted text-xs rounded-md text-muted-foreground">
+            <span className="px-1.5 py-0.5 bg-muted text-[11px] rounded-md text-muted-foreground">
               +{project.tags.length - 3}
             </span>
           )}
         </div>
 
         {/* Technologies */}
-        <div className="mb-4">
-          <p className="text-xs text-muted-foreground mb-2">Tecnologias:</p>
-          <p className="text-xs text-foreground line-clamp-1">
+        <div className="mb-3">
+          <p className="text-[11px] text-muted-foreground mb-1 font-medium">Tecnologias:</p>
+          <p className="text-xs text-foreground line-clamp-1 font-mono">
             {project.technologies.join(" • ")}
           </p>
         </div>
 
+        {/* Developer Skills / Habilidades de Desenvolvedor */}
+        {project.developerSkills && project.developerSkills.length > 0 && (
+          <div className="mb-4 p-2.5 bg-muted/30 border border-border/60 rounded-lg">
+            <p className="text-[11px] font-semibold text-primary mb-1 flex items-center gap-1.5">
+              <GraduationCap className="w-3.5 h-3.5 shrink-0" />
+              <span>Habilidades de Desenvolvedor:</span>
+            </p>
+            <p className="text-[11px] text-muted-foreground leading-snug">
+              {project.developerSkills.join(" • ")}
+            </p>
+          </div>
+        )}
+
         {/* Links */}
-        <div className="flex gap-3">
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1"
-          >
-            <Button
-              variant="default"
-              size="sm"
-              className="w-full group/btn"
+        <div className="flex gap-2.5 mt-auto pt-3 border-t border-border/50">
+          {hasLiveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1"
             >
-              <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-transform" />
-              Ver Projeto
-            </Button>
-          </a>
+              <Button
+                variant="default"
+                size="sm"
+                className="w-full text-xs group/btn h-9"
+              >
+                <ExternalLink className="w-3.5 h-3.5 mr-1.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                Ver Projeto
+              </Button>
+            </a>
+          ) : (
+            <span className="flex-1">
+              <Button
+                variant="secondary"
+                size="sm"
+                disabled
+                className="w-full text-xs h-9 opacity-70"
+              >
+                Demonstração Privada
+              </Button>
+            </span>
+          )}
+
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              title="Ver código no GitHub"
             >
               <Button
                 variant="outline"
                 size="sm"
-                className="group/btn"
+                className="group/btn h-9 px-3 hover:border-primary/50"
+                aria-label={`Ver repositório de ${project.title} no GitHub`}
               >
                 <Github className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
               </Button>

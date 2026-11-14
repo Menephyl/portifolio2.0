@@ -91,14 +91,14 @@ export function AIChatBox({
       )}
       style={{ height }}
     >
-      <div className="bg-primary/5 p-4 border-b border-primary/10 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center relative shadow-[0_0_15px_rgba(0,209,255,0.4)]">
-          <Sparkles className="w-5 h-5 text-primary" />
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-background"></div>
+      <div className="bg-slate-900/90 p-4 border-b border-border/80 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center relative shadow-[0_0_15px_rgba(16,185,129,0.25)]">
+          <Sparkles className="w-5 h-5 text-emerald-400" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 rounded-full border-2 border-slate-950"></div>
         </div>
         <div>
-          <h3 className="font-bold text-sm">Prime Assistant</h3>
-          <p className="text-xs text-muted-foreground">Online (Grok IA)</p>
+          <h3 className="font-bold text-sm text-slate-100">Consultor de IA & Diagnóstico Comercial</h3>
+          <p className="text-xs text-emerald-400 font-medium">Online • Análise de ROI & Estratégia</p>
         </div>
       </div>
 
@@ -143,8 +143,8 @@ export function AIChatBox({
                     style={shouldApplyMinHeight ? { minHeight: `${minHeightForLastMessage}px` } : undefined}
                   >
                     {message.role === "assistant" && (
-                      <div className="size-8 shrink-0 mt-1 rounded-full bg-primary/20 shadow-[0_0_10px_rgba(0,209,255,0.2)] flex items-center justify-center">
-                        <Sparkles className="size-4 text-primary" />
+                      <div className="size-8 shrink-0 mt-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.2)] flex items-center justify-center">
+                        <Sparkles className="size-4 text-emerald-400" />
                       </div>
                     )}
                     <div

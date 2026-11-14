@@ -40,11 +40,11 @@ function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-700/70 shadow-sm"
             >
-              <span className="text-2xl">🤖👨‍💻</span>
-              <span className="text-sm text-muted-foreground">
-                Eaeee! Sou Yan Menephyl ! Estou aqui pra somar!
+              <span className="text-xl">⚡👨‍💻</span>
+              <span className="text-sm text-slate-300 font-medium">
+                Yan Menephyl | Tech Lead & Consultor Estratégico
               </span>
             </motion.div>
 
@@ -53,9 +53,9 @@ function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="min-h-[140px] md:min-h-[160px]"
+              className="min-h-[120px] sm:min-h-[140px] md:min-h-[160px]"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <Typewriter
                   texts={[
                     "De Dançarino de Salão a Analista de Sistemas.",
@@ -71,53 +71,64 @@ function HeroSection() {
               </h1>
             </motion.div>
 
-            {/* Description */}
+            {/* Description com Injeção de ROI & Valor Comercial */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-lg text-muted-foreground leading-relaxed max-w-xl"
+              className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl"
             >
-              Gestão de IA e Automações com n8n - Sistemas que convertem e atendem todo dia, toda hora!
+              Gestão de IA e Automações com n8n — Sistemas que convertem e atendem todo dia, toda hora!
               Transformo ideias complexas em plataformas escaláveis com React, Node.js e IA.
-              Experiência comprovada em entrega de produtos estruturados do design à arquitetura de dados.
+              Arquitetura de software de alta performance estruturada para gerar lucro direto, eliminar lentidão e reduzir custos operacionais.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-primary/10 border border-primary/30 text-primary font-bold shadow-[0_0_10px_rgba(0,209,255,0.2)]"
-            >
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-              </span>
-              LOGO MAIS PÁGINA DE PERSONAL DANCER!!
-            </motion.div>
+            {/* Conversion & Value Badges */}
+            <div className="flex flex-wrap gap-2.5">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-xs sm:text-sm shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+              >
+                <span className="relative flex h-2.5 w-2.5 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+                </span>
+                <span>ROI Focado: +R$ 1.8M Gerados em Varejo & Soluções Digitais</span>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700 text-slate-300 font-semibold text-xs"
+              >
+                <span>🕺 Breve: Página de Personal Dancer</span>
+              </motion.div>
+            </div>
 
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
             >
               <Button
                 size="lg"
                 onClick={() => scrollToSection("contact")}
-                className="bg-[#25D366] hover:bg-[#25D366]/90 text-white font-semibold px-8 py-6 text-base rounded-lg shadow-lg shadow-[#25D366]/20 transition-all duration-300"
+                className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base rounded-lg shadow-lg shadow-emerald-500/25 transition-all duration-300"
               >
-                Solicitar Proposta
+                Solicitar Diagnóstico Comercial
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("projetos")}
-                className="border-2 border-primary/30 hover:border-primary/50 hover:bg-primary/5 font-semibold px-8 py-6 text-base rounded-lg transition-all duration-300"
+                className="w-full sm:w-auto border-2 border-slate-700 hover:border-emerald-500/60 hover:bg-slate-900/80 text-slate-200 font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base rounded-lg transition-all duration-300"
               >
                 Explorar +30 Projetos
                 <svg
-                  className="w-5 h-5 ml-2"
+                  className="w-5 h-5 ml-2 text-emerald-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -134,10 +145,11 @@ function HeroSection() {
                 href="https://www.youtube.com/@menephylDev"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
                 <Button
                   size="lg"
-                  className="bg-[#FF0000] hover:bg-[#FF0000]/90 text-white font-semibold px-8 py-6 text-base rounded-lg shadow-lg shadow-[#FF0000]/30 transition-all duration-300 flex items-center gap-2 group relative overflow-hidden"
+                  className="w-full sm:w-auto bg-[#DC2626] hover:bg-[#B91C1C] text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base rounded-lg shadow-lg shadow-red-900/30 transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
                 >
                   <span className="absolute inset-0 w-full h-full bg-white/10 group-hover:bg-transparent transition-colors"></span>
                   <span className="relative flex h-3 w-3">
@@ -160,37 +172,37 @@ function HeroSection() {
                 href="https://github.com/Menephyl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 group"
+                className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300 group"
                 aria-label="GitHub"
               >
-                <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                <Github className="w-5 h-5 text-muted-foreground group-hover:text-emerald-400 transition-colors" />
               </a>
               <a
                 href="https://www.linkedin.com/in/yanisonelpereira"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 group"
+                className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300 group"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-emerald-400 transition-colors" />
               </a>
               <a
                 href="https://www.instagram.com/yan_menephyl_works"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 group"
+                className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300 group"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-emerald-400 transition-colors" />
               </a>
 
               {/* Download CV Button */}
               <a
                 href="/assets/yan_isonel_full_stack.pdf"
                 download
-                className="flex items-center gap-2 px-5 py-3 bg-primary/10 border border-primary/30 hover:bg-primary/20 hover:border-primary/50 text-primary font-bold rounded-lg transition-all duration-300 group ml-2"
+                className="flex items-center gap-2 px-5 py-3 bg-slate-900/90 border border-slate-700 hover:border-emerald-500/50 hover:bg-emerald-500/10 text-slate-200 hover:text-emerald-400 font-bold rounded-lg transition-all duration-300 group ml-2"
               >
-                <FileText className="w-5 h-5" />
+                <FileText className="w-5 h-5 text-emerald-400" />
                 <span>Download CV</span>
               </a>
             </motion.div>
@@ -204,12 +216,12 @@ function HeroSection() {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              {/* Glow Effect */}
+              {/* Subtle Neutral Glow Effect (Fundo azul removido) */}
               <motion.div
-                className="absolute inset-0 rounded-full bg-primary/30 blur-3xl"
+                className="absolute inset-0 rounded-full bg-foreground/5 blur-2xl"
                 animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
+                  scale: [1, 1.15, 1],
+                  opacity: [0.2, 0.4, 0.2],
                 }}
                 transition={{
                   duration: 4,
@@ -219,9 +231,9 @@ function HeroSection() {
               />
 
               {/* Image Container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-cyan-400/20 p-1">
-                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background">
+              <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                <div className="absolute inset-0 rounded-full bg-border/40 p-1">
+                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background bg-card shadow-2xl">
                     <img
                       src="/assets/yan3.png"
                       alt="Yan Menephyl - Dançarino"
@@ -244,10 +256,10 @@ function HeroSection() {
 
                 {/* Animated Border */}
                 <motion.div
-                  className="absolute inset-0 rounded-full border-2 border-primary/50"
+                  className="absolute inset-0 rounded-full border border-border/60 hover:border-border transition-colors"
                   animate={{
-                    scale: [1, 1.05, 1],
-                    opacity: [0.5, 0.8, 0.5],
+                    scale: [1, 1.04, 1],
+                    opacity: [0.4, 0.7, 0.4],
                   }}
                   transition={{
                     duration: 3,

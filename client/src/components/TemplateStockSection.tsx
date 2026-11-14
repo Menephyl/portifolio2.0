@@ -27,7 +27,7 @@ export default function TemplateStockSection() {
     <section className="py-20 bg-background/60 backdrop-blur-sm relative overflow-hidden border-t border-border">
       {/* Glow Effects similar to Hero */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none" />
 
       {/* Background Intercalado Átomo React */}
       <div 
@@ -98,19 +98,40 @@ export default function TemplateStockSection() {
             </div>
           </div>
           
-          {/* Controls */}
+          {/* Controls Desktop */}
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:text-primary hover:border-primary/50 shadow-md z-10"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 rounded-full bg-background border border-border items-center justify-center hover:text-primary hover:border-primary/50 shadow-md z-10"
+            aria-label="Anterior"
           >
             ←
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:text-primary hover:border-primary/50 shadow-md z-10"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 rounded-full bg-background border border-border items-center justify-center hover:text-primary hover:border-primary/50 shadow-md z-10"
+            aria-label="Próximo"
           >
             →
           </button>
+
+          {/* Controls Mobile */}
+          <div className="flex md:hidden justify-center items-center gap-4 mt-6">
+            <button
+              onClick={scrollPrev}
+              className="w-9 h-9 rounded-full bg-card border border-border flex items-center justify-center shadow"
+              aria-label="Anterior"
+            >
+              ←
+            </button>
+            <span className="text-xs text-muted-foreground">Deslize para ver templates</span>
+            <button
+              onClick={scrollNext}
+              className="w-9 h-9 rounded-full bg-card border border-border flex items-center justify-center shadow"
+              aria-label="Próximo"
+            >
+              →
+            </button>
+          </div>
         </div>
       </div>
     </section>

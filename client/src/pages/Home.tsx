@@ -7,19 +7,20 @@ import TemplateStockSection from "@/components/TemplateStockSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import SuccessCasesSection from "@/components/SuccessCasesSection";
 import CertificationsSection from "@/components/CertificationsSection";
+import AcademicProjectsSection from "@/components/AcademicProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import AnimatedBackground from "@/components/AnimatedBackground";
+import Immersive3DBackground from "@/components/Immersive3DBackground";
 import { PrimeAssistantWidget } from "@/components/PrimeAssistantWidget";
 import AmbientAudio from "@/components/AmbientAudio";
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative">
-      <AnimatedBackground />
+    <div className="min-h-screen relative overflow-x-hidden">
+      <Immersive3DBackground />
       <AmbientAudio />
       <Header />
-      <main>
+      <main className="overflow-x-hidden">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
@@ -28,6 +29,7 @@ export default function Home() {
         <TemplateStockSection />
         <TestimonialsSection />
         <CertificationsSection />
+        <AcademicProjectsSection />
         <ContactSection />
       </main>
       <Footer />

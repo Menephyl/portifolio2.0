@@ -104,38 +104,38 @@ O portfólio centraliza meus principais trabalhos profissionais, categorizados p
 
 1. **Clone o repositório**:
 
-    ```bash
-    git clone https://github.com/Menephyl/portifolio2.0.git
-    cd portifolio2.0
-    ```
+   ```bash
+   git clone https://github.com/Menephyl/portifolio2.0.git
+   cd portifolio2.0
+   ```
 
 2. **Instale as dependências**:
 
-    ```bash
-    pnpm install
-    ```
+   ```bash
+   pnpm install
+   ```
 
 3. **Configuração de Ambiente**:
 
-    Crie um arquivo `.env` na raiz seguindo o exemplo:
+   Crie um arquivo `.env` na raiz seguindo o exemplo:
 
-    ```env
-    DATABASE_URL="mysql://usuario:senha@localhost:3306/portfolio_db"
-    JWT_SECRET="sua_chave_secreta"
-    OPENAI_API_KEY="sua_chave_openai" # Opcional para o chat
-    ```
+   ```env
+   DATABASE_URL="mysql://usuario:senha@localhost:3306/portfolio_db"
+   JWT_SECRET="sua_chave_secreta"
+   OPENAI_API_KEY="sua_chave_openai" # Opcional para o chat
+   ```
 
 4. **Migrações do Banco**:
 
-    ```bash
-    pnpm db:push
-    ```
+   ```bash
+   pnpm db:push
+   ```
 
 5. **Rodar em Desenvolvimento**:
 
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   pnpm dev
+   ```
 
 ---
 

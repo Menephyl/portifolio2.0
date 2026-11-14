@@ -46,8 +46,8 @@ export default function ProjectsShowcase() {
 
   const getTechColor = (tech: string) => {
     const colors: Record<string, string> = {
-      React: "bg-cyan-500",
-      TypeScript: "bg-blue-500",
+      React: "bg-emerald-500",
+      TypeScript: "bg-slate-400",
       JavaScript: "bg-yellow-500",
       HTML: "bg-orange-500",
       HTML5: "bg-orange-500",

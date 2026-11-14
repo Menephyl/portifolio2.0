@@ -1,41 +1,42 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, memo, useMemo, useState } from "react";
-import { Code2, Rocket, Users, GraduationCap, Building2, Terminal } from "lucide-react";
+import { Code2, Rocket, Users, GraduationCap, Building2, Terminal, ShieldCheck, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// Constantes extraídas para evitar recriação
+// Valores Estratégicos com Foco em Retorno e Robustez
 const VALUES_DATA = [
   {
     icon: Code2,
-    title: "Código Limpo",
-    description: "Desenvolvimento com boas práticas e arquitetura escalável",
+    title: "Código Limpo & Eficiência",
+    description: "Arquitetura escalável que reduz em até 70% os custos futuros de manutenção e retrabalho técnico.",
   },
   {
-    icon: Rocket,
-    title: "Inovação",
-    description: "Sempre explorando novas tecnologias e soluções modernas",
+    icon: TrendingUp,
+    title: "Foco em ROI & Conversão",
+    description: "Sistemas desenhados da raiz para reter visitantes, acelerar checkouts e maximizar faturamento.",
   },
   {
-    icon: Users,
-    title: "Colaboração",
-    description: "Trabalho em equipe e compartilhamento de conhecimento",
+    icon: ShieldCheck,
+    title: "Confiabilidade & Entrega",
+    description: "Cumprimento rigoroso de cronogramas com deploys contínuos e alta integridade transacional.",
   },
 ];
 
+// Inventário Rigorosamente Preservado com Camada de Valor Financeiro e Operacional
 const TIMELINE_DATA = [
   {
     period: "2015-2017",
     title: "Programador C#",
     subtitle: "Microlins",
-    description: "",
+    description: "Fundamentos sólidos em tipagem forte e lógica algorítmica orientada a objetos para aplicações corporativas.",
     icon: GraduationCap,
   },
   {
     period: "2015-2017",
     title: "Técnico em Informática",
     subtitle: "Concomitante ao Ensino Médio",
-    description: "⭐ Destaque: 2 formações simultâneas ao ensino médio",
+    description: "⭐ Destaque: 2 formações simultâneas ao ensino médio. Base rígida de hardware, redes e estruturação computacional de alta disponibilidade.",
     icon: GraduationCap,
     highlight: true,
   },
@@ -43,21 +44,21 @@ const TIMELINE_DATA = [
     period: "2018-2024",
     title: "Técnico em Informática e Analista de TI",
     subtitle: "Autônomo",
-    description: "",
+    description: "Diagnóstico, reparo e manutenção de infraestruturas críticas, garantindo disponibilidade contínua e redução de tempo ocioso para clientes.",
     icon: Code2,
   },
   {
     period: "Agosto de 2025",
     title: "Desenvolvedor Frontend",
     subtitle: "Início Oficial e Especialização",
-    description: "Migração oficial de carreira (da dança para o código). Especialização profunda em React.js, TypeScript e interfaces Premium com TailwindCSS, dominando animações fluídas e experiência de usuário.",
+    description: "Migração oficial de carreira (da dança para o código). Especialização profunda em React.js, TypeScript e interfaces Premium com TailwindCSS, dominando animações fluídas e UX voltada para retenção e conversão de clientes.",
     icon: Code2,
   },
   {
     period: "Dezembro de 2025",
     title: "Desenvolvedor Full Stack",
     subtitle: "Domínio do Ecossistema Web",
-    description: "Domínio do ecossistema backend na prática. Criação de arquiteturas robustas em Node.js com Express, modelagem de Bancos de Dados Relacionais e integrações de pagamentos e automações.",
+    description: "Domínio do ecossistema backend na prática. Criação de arquiteturas robustas em Node.js com Express, modelagem de Bancos de Dados Relacionais e integrações de pagamentos e automações focadas em alta concorrência e eliminação de perdas de vendas por lentidão.",
     icon: Terminal,
     highlight: true,
   },
@@ -65,7 +66,7 @@ const TIMELINE_DATA = [
     period: "Janeiro de 2026",
     title: "Suporte Técnico",
     subtitle: "Dev Club",
-    description: "Atendimento e suporte técnico para desenvolvedores, auxiliando na resolução de problemas complexos de código e infraestrutura.",
+    description: "Atendimento e suporte técnico para desenvolvedores, auxiliando na resolução de problemas complexos de código e infraestrutura com foco em agilidade de entrega.",
     icon: Code2,
     customImage: "/assets/devclub.png",
     highlight: true,
@@ -74,7 +75,7 @@ const TIMELINE_DATA = [
     period: "Março de 2026",
     title: "Tech Lead & CEO | Prime Team",
     subtitle: "Fundação de Software House",
-    description: "Fundação da Prime Team. Liderança em desenvolvimento de ponta a ponta, orquestrando soluções como Delivery, Plataformas SaaS, Landing Pages de alta conversão e Sistemas Administrativos.",
+    description: "Fundação da Prime Team. Liderança em desenvolvimento de ponta a ponta, orquestrando soluções de alto retorno financeiro (Delivery, Plataformas SaaS, Landing Pages com +35% de conversão e Sistemas Administrativos que reduzem custos operacionais).",
     icon: Building2,
     highlight: true,
   },
@@ -89,42 +90,45 @@ function AboutSection() {
   const timeline = useMemo(() => TIMELINE_DATA, []);
 
   return (
-    <section id="about" ref={ref} className="py-20 bg-background/60 backdrop-blur-sm relative overflow-hidden">
+    <section id="about" ref={ref} className="py-20 bg-background/80 backdrop-blur-sm relative overflow-hidden">
       {/* Background Intercalado Átomo React */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('/assets/reactatom.gif')] bg-no-repeat bg-fixed bg-center" 
         style={{ backgroundSize: '40%' }}
       />
-      <div className="container px-6 relative z-10">
+      <div className="container px-4 sm:px-6 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Sobre <span className="text-primary">Mim</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-4">
+            <Rocket className="w-3.5 h-3.5" />
+            <span>Engenharia de Software & Visão de Negócio</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            Sobre <span className="text-emerald-400">Mim</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-8" />
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Desenvolvedor apaixonado por criar soluções que fazem a diferença
+          <div className="w-20 h-1 bg-emerald-500 mx-auto rounded-full mb-6 sm:mb-8" />
+          <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto">
+            Engenheiro de Software e Estrategista focado em converter linhas de código em retorno tangível para empresas e empreendedores.
           </p>
         </motion.div>
 
         {/* Main Description & Photo */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <p className="text-lg text-foreground/80 leading-relaxed">
-              Gosto de criar aplicações que façam sentido para quem usa. Analiso os
-              desafios de cada projeto e transformo ideias em soluções funcionais,
-              claras e bem estruturadas. Valorizo código limpo, boas práticas e
-              aprendizado constante, usando cada experiência para evoluir
-              tecnicamente e entregar impacto real.
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed mb-4">
+              Minha atuação une a precisão técnica da engenharia moderna à visão pragmática de crescimento comercial. Cada sistema, landing page e automação com IA é arquitetado para resolver gargalos reais: lentidão que custa vendas, processos manuais que consomem equipes e plataformas que não escalam sob pressão.
+            </p>
+            <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
+              Com histórico de mais de 130 templates produzidos e 16 sistemas em produção, trago rigor arquitetural, tipagem forte, microsserviços ágeis e integrações ponta a ponta para que sua operação funcione 24/7 com máxima rentabilidade.
             </p>
           </motion.div>
           
@@ -135,11 +139,11 @@ function AboutSection() {
             className="flex justify-center"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-cyan-400/20 rounded-2xl transform rotate-3" />
+              <div className="absolute inset-0 bg-slate-800/40 rounded-2xl transform rotate-2" />
               <img
                 src="/assets/yan2.png"
                 alt="Yan Menephyl"
-                className="relative rounded-2xl shadow-xl w-full max-w-sm object-cover border-2 border-primary/20 transform hover:-rotate-2 transition-transform duration-300"
+                className="relative rounded-2xl shadow-2xl w-full max-w-sm object-cover border border-slate-700/80 transform hover:-rotate-1 transition-transform duration-300"
               />
             </div>
           </motion.div>
@@ -152,26 +156,26 @@ function AboutSection() {
               key={value.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.4 }}
+              whileHover={{ scale: 1.03, y: -4 }}
+              transition={{ duration: 0.3 }}
               className="group relative"
             >
-              <div className="relative bg-card border border-border rounded-2xl p-8 h-full hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+              <div className="relative bg-card border border-border/80 rounded-2xl p-7 h-full hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5">
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <value.icon className="w-8 h-8 text-primary" />
+                <div className="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors duration-300">
+                  <value.icon className="w-7 h-7 text-emerald-400" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl font-bold text-slate-100 mb-3 group-hover:text-emerald-400 transition-colors duration-300">
                   {value.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-slate-400 leading-relaxed text-sm">
                   {value.description}
                 </p>
 
                 {/* Hover Effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
             </motion.div>
           ))}
@@ -185,7 +189,7 @@ function AboutSection() {
           className="max-w-3xl mx-auto"
         >
           <h3 className="text-3xl font-bold text-center mb-12">
-            <span className="text-primary">Trajetória</span>
+            <span className="text-emerald-400">Trajetória & Marcos</span>
           </h3>
 
           <div className="space-y-8 relative">
@@ -198,35 +202,35 @@ function AboutSection() {
                   animate={{ opacity: 1, height: "auto", x: 0 }}
                   exit={{ opacity: 0, height: 0, x: -20 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="relative pl-8 border-l-2 border-primary/30 hover:border-primary/50 transition-colors duration-300"
+                  className="relative pl-8 border-l-2 border-emerald-500/30 hover:border-emerald-500/60 transition-colors duration-300"
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background" />
+                  <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-emerald-500 border-4 border-background" />
 
                   {/* Content */}
-                  <div className={`bg-card border rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 ${
+                  <div className={`bg-card border rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 ${
                     item.highlight 
-                      ? "border-primary shadow-[0_0_15px_rgba(0,209,255,0.15)]" 
-                      : "border-border hover:border-primary/50"
+                      ? "border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.12)]" 
+                      : "border-border hover:border-emerald-500/30"
                   }`}>
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                      <div className="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
                         {item.customImage ? (
                           <img src={item.customImage} alt={item.title} className="w-full h-full object-cover" onError={(e) => { e.currentTarget.src = "/react-logo.png" }} />
                         ) : (
-                          <item.icon className="w-6 h-6 text-primary" />
+                          <item.icon className="w-6 h-6 text-emerald-400" />
                         )}
                       </div>
                       <div className="flex-1">
-                        <span className="text-sm font-semibold text-primary mb-2 block">
+                        <span className="text-sm font-semibold text-emerald-400 mb-1.5 block">
                           {item.period}
                         </span>
-                        <h4 className="text-xl font-bold text-foreground mb-1">
+                        <h4 className="text-xl font-bold text-slate-100 mb-1">
                           {item.title}
                         </h4>
-                        <p className="text-muted-foreground font-medium mb-2">{item.subtitle}</p>
+                        <p className="text-slate-400 font-medium text-sm mb-2">{item.subtitle}</p>
                         {item.description && (
-                          <p className={`text-sm leading-relaxed ${item.description.includes('⭐') ? 'text-[#00D1FF] font-medium' : 'text-muted-foreground'}`}>{item.description}</p>
+                          <p className={`text-sm leading-relaxed ${item.description.includes('⭐') ? 'text-emerald-400 font-semibold' : 'text-slate-300'}`}>{item.description}</p>
                         )}
                       </div>
                     </div>
@@ -242,7 +246,7 @@ function AboutSection() {
             >
               <Button
                 variant="outline"
-                className="group gap-2 border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                className="group gap-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 text-slate-200 transition-all duration-300"
                 onClick={() => setShowAll(!showAll)}
               >
                 {showAll ? "Ver Menos" : "Ver Trajetória Completa"}
@@ -250,7 +254,7 @@ function AboutSection() {
                   animate={{ rotate: showAll ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Rocket className="w-4 h-4 text-primary" />
+                  <Rocket className="w-4 h-4 text-emerald-400" />
                 </motion.span>
               </Button>
             </motion.div>

@@ -54,13 +54,13 @@ function AnimatedBackground() {
       },
       particles: {
         color: {
-          value: theme === "dark" ? "#00D1FF" : "#0ea5e9", // Sci-fi cyan
+          value: ["#10B981", "#94A3B8", "#CBD5E1"],
         },
         links: {
-          color: theme === "dark" ? "#00D1FF" : "#0ea5e9",
-          distance: 150,
+          color: "#94A3B8",
+          distance: 140,
           enable: true,
-          opacity: 0.3,
+          opacity: 0.18,
           width: 1,
         },
         move: {
@@ -99,7 +99,7 @@ function AnimatedBackground() {
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none bg-background">
       {/* Background gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-cyan-950/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-emerald-950/20" />
       
       {/* Particles Network */}
       {init && (

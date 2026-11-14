@@ -147,7 +147,7 @@ export default function Footer() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
                 </span>
-                <span className="group-hover:text-[#00D1FF] transition-colors">By Prime Team</span>
+                <span className="group-hover:text-emerald-400 transition-colors">By Prime Team</span>
               </a>
             </div>
           </div>

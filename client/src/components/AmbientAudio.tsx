@@ -4,6 +4,7 @@ import { Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AmbientAudio() {
+  const Player = ReactPlayer as any;
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(false); // Inicia desmutado mas pausado
 
@@ -39,7 +40,7 @@ export default function AmbientAudio() {
   return (
     <>
       <div className="fixed top-0 left-0 opacity-0 pointer-events-none w-1 h-1 z-[-1] overflow-hidden">
-        <ReactPlayer
+        <Player
           url="https://www.youtube.com/watch?v=N2p_JFF4lR0"
           playing={playing}
           muted={muted}
