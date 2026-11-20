@@ -5,7 +5,7 @@ import SkillsSection from "@/components/SkillsSection";
 import FeaturedProjectsSection from "@/components/FeaturedProjectsSection";
 import TemplateStockSection from "@/components/TemplateStockSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import SuccessCasesSection from "@/components/SuccessCasesSection";
+// import SuccessCasesSection from "@/components/SuccessCasesSection";
 import CertificationsSection from "@/components/CertificationsSection";
 import AcademicProjectsSection from "@/components/AcademicProjectsSection";
 import ContactSection from "@/components/ContactSection";
@@ -16,16 +16,16 @@ import AmbientAudio from "@/components/AmbientAudio";
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative overflow-x-hidden">
+    <div className="min-h-screen relative">
       <Immersive3DBackground />
       <AmbientAudio />
       <Header />
-      <main className="overflow-x-hidden">
+      <main className="relative">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
         <FeaturedProjectsSection />
-        <SuccessCasesSection />
+        {/* <SuccessCasesSection /> */}
         <TemplateStockSection />
         <TestimonialsSection />
         <CertificationsSection />

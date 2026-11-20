@@ -91,14 +91,14 @@ export function AIChatBox({
       )}
       style={{ height }}
     >
-      <div className="bg-slate-900/90 p-4 border-b border-border/80 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center relative shadow-[0_0_15px_rgba(16,185,129,0.25)]">
-          <Sparkles className="w-5 h-5 text-emerald-400" />
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 rounded-full border-2 border-slate-950"></div>
+      <div className="bg-[#0A1124] p-4 border-b border-[#00D2FF]/20 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-[#00D2FF]/15 border border-[#00D2FF]/35 flex items-center justify-center relative shadow-[0_0_15px_rgba(0,210,255,0.25)]">
+          <Sparkles className="w-5 h-5 text-[#00D2FF]" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 bg-[#00D2FF] rounded-full border-2 border-[#030712]"></div>
         </div>
         <div>
-          <h3 className="font-bold text-sm text-slate-100">Consultor de IA & Diagnóstico Comercial</h3>
-          <p className="text-xs text-emerald-400 font-medium">Online • Análise de ROI & Estratégia</p>
+          <h3 className="font-bold text-sm text-[#E2E8F0]">Consultor de IA & Diagnóstico Comercial</h3>
+          <p className="text-xs text-[#F59E0B] font-mono font-medium">Online • Diagnóstico Operacional & ROI</p>
         </div>
       </div>
 
@@ -143,8 +143,8 @@ export function AIChatBox({
                     style={shouldApplyMinHeight ? { minHeight: `${minHeightForLastMessage}px` } : undefined}
                   >
                     {message.role === "assistant" && (
-                      <div className="size-8 shrink-0 mt-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.2)] flex items-center justify-center">
-                        <Sparkles className="size-4 text-emerald-400" />
+                      <div className="size-8 shrink-0 mt-1 rounded-full bg-[#00D2FF]/15 border border-[#00D2FF]/30 shadow-[0_0_10px_rgba(0,210,255,0.2)] flex items-center justify-center">
+                        <Sparkles className="size-4 text-[#00D2FF]" />
                       </div>
                     )}
                     <div

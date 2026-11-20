@@ -132,13 +132,13 @@ export function PrimeAssistantWidget() {
         {/* Scroll To Top FAB */}
         <button
           onClick={handleScrollClick}
-          className="w-12 h-12 bg-slate-900/90 border border-slate-700/80 hover:bg-emerald-500/10 text-slate-200 rounded-full flex items-center justify-center shadow-xl hover:border-emerald-500/50 transition-all duration-300"
+          className="w-12 h-12 bg-[#0A1124] border border-[#00D2FF]/30 hover:bg-[#00D2FF]/10 text-slate-200 rounded-full flex items-center justify-center shadow-xl hover:border-[#00D2FF]/60 transition-all duration-300"
           aria-label={isAtTop ? "Rolar para baixo" : "Voltar ao topo"}
         >
           <motion.svg 
             animate={{ rotate: isAtTop ? 180 : 0 }}
             transition={{ duration: 0.3 }}
-            className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            className="w-5 h-5 text-[#00D2FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
           </motion.svg>
@@ -153,17 +153,17 @@ export function PrimeAssistantWidget() {
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 2, duration: 0.5 }}
-              className="absolute right-[76px] top-1/2 -translate-y-1/2 w-max max-w-[240px] sm:max-w-none bg-slate-950/95 backdrop-blur-md border border-emerald-500/30 p-2.5 sm:p-3 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(16,185,129,0.15)] flex items-center gap-2 pointer-events-none"
+              className="absolute right-[76px] top-1/2 -translate-y-1/2 w-max max-w-[240px] sm:max-w-none bg-[#0A1124]/95 backdrop-blur-md border border-[#00D2FF]/40 p-2.5 sm:p-3 rounded-2xl rounded-br-none shadow-[0_0_20px_rgba(0,210,255,0.2)] flex items-center gap-2 pointer-events-none"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-              <span className="text-xs sm:text-sm font-semibold text-slate-100">
-                Diagnóstico Comercial & ROI em 1 Minuto 🚀
+              <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse shrink-0" />
+              <span className="text-xs sm:text-sm font-semibold text-[#E2E8F0]">
+                Diagnóstico Comercial & ROI 🚀
               </span>
             </motion.div>
           )}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-14 h-14 sm:w-16 sm:h-16 bg-slate-950 border-2 border-slate-700 hover:border-emerald-500 text-slate-100 rounded-full flex items-center justify-center shadow-2xl hover:-translate-y-1 transition-all duration-300 z-50 overflow-hidden relative group"
+            className="w-14 h-14 sm:w-16 sm:h-16 bg-[#0A1124] border-2 border-[#00D2FF]/40 hover:border-[#00D2FF] text-slate-100 rounded-full flex items-center justify-center shadow-2xl hover:-translate-y-1 transition-all duration-300 z-50 overflow-hidden relative group"
             aria-label="Abrir assistente comercial"
           >
             {isOpen ? (
@@ -176,8 +176,8 @@ export function PrimeAssistantWidget() {
                   className="w-full h-full object-cover scale-105" 
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-                <div className="absolute bottom-1 right-1 bg-slate-900 p-1 rounded-full shadow border border-emerald-500/40">
-                  <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
+                <div className="absolute bottom-1 right-1 bg-[#030712] p-1 rounded-full shadow border border-[#00D2FF]/50">
+                  <MessageSquare className="w-3.5 h-3.5 text-[#00D2FF]" />
                 </div>
               </div>
             )}

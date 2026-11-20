@@ -90,28 +90,28 @@ function AboutSection() {
   const timeline = useMemo(() => TIMELINE_DATA, []);
 
   return (
-    <section id="about" ref={ref} className="py-20 bg-background/80 backdrop-blur-sm relative overflow-hidden">
+    <section id="about" ref={ref} className="py-24 bg-[#030712] relative overflow-hidden border-t border-[#00D2FF]/10">
       {/* Background Intercalado Átomo React */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('/assets/reactatom.gif')] bg-no-repeat bg-fixed bg-center" 
         style={{ backgroundSize: '40%' }}
       />
-      <div className="container px-4 sm:px-6 relative z-10">
+      <div className="container px-4 sm:px-6 relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-16 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-4">
-            <Rocket className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0A1124] border border-[#00D2FF]/30 text-[#00D2FF] text-xs font-semibold mb-4 shadow-[0_0_15px_rgba(0,210,255,0.15)]">
+            <Rocket className="w-3.5 h-3.5 text-[#00D2FF]" />
             <span>Engenharia de Software & Visão de Negócio</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Sobre <span className="text-emerald-400">Mim</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#E2E8F0]">
+            Sobre <span className="text-[#00D2FF]">Mim</span>
           </h2>
-          <div className="w-20 h-1 bg-emerald-500 mx-auto rounded-full mb-6 sm:mb-8" />
+          <div className="w-20 h-1 bg-gradient-to-r from-[#00D2FF] to-[#F59E0B] mx-auto rounded-full mb-6 sm:mb-8" />
           <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto">
             Engenheiro de Software e Estrategista focado em converter linhas de código em retorno tangível para empresas e empreendedores.
           </p>
@@ -138,12 +138,12 @@ function AboutSection() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="flex justify-center"
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-slate-800/40 rounded-2xl transform rotate-2" />
+            <div className="relative group">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#00D2FF]/30 to-[#F59E0B]/30 blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
               <img
                 src="/assets/yan2.png"
                 alt="Yan Menephyl"
-                className="relative rounded-2xl shadow-2xl w-full max-w-sm object-cover border border-slate-700/80 transform hover:-rotate-1 transition-transform duration-300"
+                className="relative rounded-2xl shadow-2xl w-full max-w-sm object-cover border border-[#00D2FF]/30 transform hover:-rotate-1 transition-transform duration-300"
               />
             </div>
           </motion.div>
@@ -160,14 +160,14 @@ function AboutSection() {
               transition={{ duration: 0.3 }}
               className="group relative"
             >
-              <div className="relative bg-card border border-border/80 rounded-2xl p-7 h-full hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5">
+              <div className="relative bg-[#0A1124] border border-slate-800 hover:border-[#00D2FF]/50 rounded-2xl p-7 h-full transition-all duration-300 hover:shadow-xl hover:shadow-[#00D2FF]/10">
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors duration-300">
-                  <value.icon className="w-7 h-7 text-emerald-400" />
+                <div className="w-14 h-14 rounded-xl bg-[#00D2FF]/10 border border-[#00D2FF]/30 flex items-center justify-center mb-6 group-hover:bg-[#00D2FF]/20 transition-colors duration-300">
+                  <value.icon className="w-7 h-7 text-[#00D2FF]" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-slate-100 mb-3 group-hover:text-emerald-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-slate-100 mb-3 group-hover:text-[#00D2FF] transition-colors duration-300">
                   {value.title}
                 </h3>
                 <p className="text-slate-400 leading-relaxed text-sm">
@@ -175,7 +175,7 @@ function AboutSection() {
                 </p>
 
                 {/* Hover Effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#00D2FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
             </motion.div>
           ))}
@@ -188,8 +188,8 @@ function AboutSection() {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="max-w-3xl mx-auto"
         >
-          <h3 className="text-3xl font-bold text-center mb-12">
-            <span className="text-emerald-400">Trajetória & Marcos</span>
+          <h3 className="text-3xl font-bold text-center mb-12 text-[#E2E8F0]">
+            <span className="text-[#00D2FF]">Trajetória & Marcos</span>
           </h3>
 
           <div className="space-y-8 relative">
@@ -202,27 +202,27 @@ function AboutSection() {
                   animate={{ opacity: 1, height: "auto", x: 0 }}
                   exit={{ opacity: 0, height: 0, x: -20 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="relative pl-8 border-l-2 border-emerald-500/30 hover:border-emerald-500/60 transition-colors duration-300"
+                  className="relative pl-8 border-l-2 border-[#00D2FF]/30 hover:border-[#00D2FF]/60 transition-colors duration-300"
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-emerald-500 border-4 border-background" />
+                  <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#00D2FF] border-4 border-[#030712] shadow-[0_0_10px_rgba(0,210,255,0.8)]" />
 
                   {/* Content */}
-                  <div className={`bg-card border rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 ${
+                  <div className={`bg-[#0A1124] border rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-[#00D2FF]/10 ${
                     item.highlight 
-                      ? "border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.12)]" 
-                      : "border-border hover:border-emerald-500/30"
+                      ? "border-[#00D2FF]/40 shadow-[0_0_15px_rgba(0,210,255,0.15)]" 
+                      : "border-slate-800 hover:border-[#00D2FF]/30"
                   }`}>
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                      <div className="w-12 h-12 rounded-lg bg-[#00D2FF]/10 border border-[#00D2FF]/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
                         {item.customImage ? (
                           <img src={item.customImage} alt={item.title} className="w-full h-full object-cover" onError={(e) => { e.currentTarget.src = "/react-logo.png" }} />
                         ) : (
-                          <item.icon className="w-6 h-6 text-emerald-400" />
+                          <item.icon className="w-6 h-6 text-[#00D2FF]" />
                         )}
                       </div>
                       <div className="flex-1">
-                        <span className="text-sm font-semibold text-emerald-400 mb-1.5 block">
+                        <span className="text-sm font-semibold text-[#00D2FF] mb-1.5 block font-mono">
                           {item.period}
                         </span>
                         <h4 className="text-xl font-bold text-slate-100 mb-1">
@@ -230,7 +230,7 @@ function AboutSection() {
                         </h4>
                         <p className="text-slate-400 font-medium text-sm mb-2">{item.subtitle}</p>
                         {item.description && (
-                          <p className={`text-sm leading-relaxed ${item.description.includes('⭐') ? 'text-emerald-400 font-semibold' : 'text-slate-300'}`}>{item.description}</p>
+                          <p className={`text-sm leading-relaxed ${item.description.includes('⭐') ? 'text-[#F59E0B] font-semibold' : 'text-slate-300'}`}>{item.description}</p>
                         )}
                       </div>
                     </div>
@@ -246,7 +246,7 @@ function AboutSection() {
             >
               <Button
                 variant="outline"
-                className="group gap-2 border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 text-slate-200 transition-all duration-300"
+                className="group gap-2 border-[#00D2FF]/30 hover:border-[#00D2FF] hover:bg-[#00D2FF]/10 text-slate-200 transition-all duration-300"
                 onClick={() => setShowAll(!showAll)}
               >
                 {showAll ? "Ver Menos" : "Ver Trajetória Completa"}
@@ -254,7 +254,7 @@ function AboutSection() {
                   animate={{ rotate: showAll ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Rocket className="w-4 h-4 text-emerald-400" />
+                  <Rocket className="w-4 h-4 text-[#00D2FF]" />
                 </motion.span>
               </Button>
             </motion.div>

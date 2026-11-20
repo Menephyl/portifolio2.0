@@ -296,12 +296,12 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
         {/* Business Result / Impacto do Projeto */}
         {project.businessResult && (
-          <div className="mb-3.5 p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
-            <p className="text-[11px] font-bold text-emerald-400 mb-1 flex items-center gap-1.5">
+          <div className="mb-3.5 p-2.5 rounded-lg bg-[#F59E0B]/10 border border-[#F59E0B]/30 shadow-[0_0_12px_rgba(245,158,11,0.1)]">
+            <p className="text-[11px] font-bold text-[#F59E0B] mb-1 flex items-center gap-1.5 font-mono">
               <TrendingUp className="w-3.5 h-3.5 shrink-0" />
-              <span>Impacto Financeiro / ROI:</span>
+              <span>Impacto Comercial / ROI:</span>
             </p>
-            <p className="text-xs text-foreground font-medium leading-snug">
+            <p className="text-xs text-[#E2E8F0] font-medium leading-snug">
               {project.businessResult}
             </p>
           </div>

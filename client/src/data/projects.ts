@@ -19,9 +19,10 @@ export const staticProjects: Project[] = [
     technologies: ["React", "TypeScript", "TailwindCSS", "API"],
     image: "/projects/pass-in.jpg",
     demoUrl: "https://pass-in-react.vercel.app",
-    githubUrl: "https://github.com/Menephyl/pass-in-react",
+    githubUrl: "https://github.com/Menephyl/pass-in-web",
     featured: true,
   },
+
   {
     id: "cardapio-digital",
     title: "Cardápio Digital",
@@ -62,7 +63,7 @@ export const staticProjects: Project[] = [
     fullDescription: "Projeto feito utilizando HTML, CSS e Javascript. Simples landing Page para a venda de relógios inteligentes, mostrando algumas opções",
     technologies: ["HTML", "CSS", "JavaScript"],
     image: "/projects/watch-apple.jpg",
-    demoUrl: "https://watch-apple.vercel.app",
+    demoUrl: "https://applewatch-three.vercel.app/",
     githubUrl: "https://github.com/Menephyl/APPLEJS",
     featured: false,
   },

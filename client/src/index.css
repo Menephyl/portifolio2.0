@@ -43,83 +43,101 @@
 }
 
 :root {
-  /* Tema Base: Fundo Chumbo Profundo (#09090b), Tipografia Prata Metálico (#E2E8F0 / #94A3B8), Acentos Verde Esmeralda (#10B981) */
-  --primary: #10B981;
-  --primary-foreground: #02140D;
-  --sidebar-primary: #10B981;
-  --sidebar-primary-foreground: #02140D;
-  --chart-1: #10B981;
-  --chart-2: #059669;
+  /* NOVA IDENTIDADE VISUAL - ÁTOMO ENERGIZADO & ALTO TICKET */
+  --bg-void: #030712;
+  --bg-surface: #0A1124;
+  --bg-elevated: #111C38;
+  --accent-cyan: #00D2FF;
+  --accent-amber: #F59E0B;
+  --text-silver: #E2E8F0;
+  --text-silver-muted: #94A3B8;
+
+  --primary: #00D2FF;
+  --primary-foreground: #030712;
+  --sidebar-primary: #00D2FF;
+  --sidebar-primary-foreground: #030712;
+  --chart-1: #00D2FF;
+  --chart-2: #F59E0B;
   --chart-3: #94A3B8;
   --chart-4: #CBD5E1;
-  --chart-5: #0F172A;
-  --radius: 0.65rem;
-  --background: #09090B;
-  --foreground: #F8FAFC;
-  --card: #0D0F14;
-  --card-foreground: #F8FAFC;
-  --popover: #0D0F14;
-  --popover-foreground: #F8FAFC;
-  --secondary: #14171F;
+  --chart-5: #0A1124;
+  --radius: 0.75rem;
+  --background: #030712;
+  --foreground: #E2E8F0;
+  --card: #0A1124;
+  --card-foreground: #E2E8F0;
+  --popover: #0A1124;
+  --popover-foreground: #E2E8F0;
+  --secondary: #111C38;
   --secondary-foreground: #E2E8F0;
-  --muted: #181C26;
+  --muted: #0F172A;
   --muted-foreground: #94A3B8;
-  --accent: #15241E;
-  --accent-foreground: #10B981;
+  --accent: rgba(0, 210, 255, 0.12);
+  --accent-foreground: #00D2FF;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(148, 163, 184, 0.16);
-  --input: rgba(148, 163, 184, 0.16);
-  --ring: #10B981;
-  --sidebar: #09090B;
-  --sidebar-foreground: #F8FAFC;
-  --sidebar-accent: #14171F;
-  --sidebar-accent-foreground: #10B981;
-  --sidebar-border: rgba(148, 163, 184, 0.16);
-  --sidebar-ring: #10B981;
+  --border: rgba(0, 210, 255, 0.16);
+  --input: rgba(0, 210, 255, 0.16);
+  --ring: #00D2FF;
+  --sidebar: #030712;
+  --sidebar-foreground: #E2E8F0;
+  --sidebar-accent: #0A1124;
+  --sidebar-accent-foreground: #00D2FF;
+  --sidebar-border: rgba(0, 210, 255, 0.16);
+  --sidebar-ring: #00D2FF;
 }
 
 .dark {
-  /* Tema Dark Puro: Fundo Preto Absoluto (#050505), Prata Metálico e Verde Esmeralda de Conversão */
-  --primary: #10B981;
-  --primary-foreground: #02140D;
-  --sidebar-primary: #10B981;
-  --sidebar-primary-foreground: #02140D;
-  --background: #050505;
-  --foreground: #F8FAFC;
-  --card: #0A0C10;
-  --card-foreground: #F8FAFC;
-  --popover: #0A0C10;
-  --popover-foreground: #F8FAFC;
-  --secondary: #11141B;
+  /* Modo Dark Rigoroso */
+  --bg-void: #030712;
+  --bg-surface: #0A1124;
+  --bg-elevated: #111C38;
+  --accent-cyan: #00D2FF;
+  --accent-amber: #F59E0B;
+  --text-silver: #E2E8F0;
+  --text-silver-muted: #94A3B8;
+
+  --primary: #00D2FF;
+  --primary-foreground: #030712;
+  --sidebar-primary: #00D2FF;
+  --sidebar-primary-foreground: #030712;
+  --background: #030712;
+  --foreground: #E2E8F0;
+  --card: #0A1124;
+  --card-foreground: #E2E8F0;
+  --popover: #0A1124;
+  --popover-foreground: #E2E8F0;
+  --secondary: #111C38;
   --secondary-foreground: #E2E8F0;
-  --muted: #151922;
+  --muted: #0D162B;
   --muted-foreground: #94A3B8;
-  --accent: #0F261E;
-  --accent-foreground: #34D399;
+  --accent: rgba(0, 210, 255, 0.14);
+  --accent-foreground: #00D2FF;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(148, 163, 184, 0.16);
-  --input: rgba(148, 163, 184, 0.16);
-  --ring: #10B981;
-  --chart-1: #10B981;
-  --chart-2: #34D399;
+  --border: rgba(0, 210, 255, 0.16);
+  --input: rgba(0, 210, 255, 0.16);
+  --ring: #00D2FF;
+  --chart-1: #00D2FF;
+  --chart-2: #F59E0B;
   --chart-3: #94A3B8;
   --chart-4: #CBD5E1;
-  --chart-5: #059669;
-  --sidebar: #050505;
-  --sidebar-foreground: #F8FAFC;
-  --sidebar-accent: #11141B;
-  --sidebar-accent-foreground: #F8FAFC;
-  --sidebar-border: rgba(148, 163, 184, 0.16);
-  --sidebar-ring: #10B981;
+  --chart-5: #0A1124;
+  --sidebar: #030712;
+  --sidebar-foreground: #E2E8F0;
+  --sidebar-accent: #0A1124;
+  --sidebar-accent-foreground: #00D2FF;
+  --sidebar-border: rgba(0, 210, 255, 0.16);
+  --sidebar-ring: #00D2FF;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html,
   body {
+    overflow-x: clip;
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }

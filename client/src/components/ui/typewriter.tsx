@@ -55,13 +55,13 @@ export function Typewriter({
 
   return (
     <span className="relative">
-      <span className="bg-gradient-to-r from-slate-100 via-slate-200 to-slate-400 bg-clip-text text-transparent">
+      <span className="bg-gradient-to-r from-slate-100 via-cyan-300 to-slate-300 bg-clip-text text-transparent">
         {currentText}
       </span>
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-        className="inline-block w-[3px] h-[1em] bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.8)] ml-1 align-middle"
+        className="inline-block w-[3px] h-[1em] bg-[#00D2FF] shadow-[0_0_12px_rgba(0,210,255,0.9)] ml-1 align-middle"
       />
     </span>
   );

@@ -10,7 +10,7 @@ function Immersive3DBackground() {
 
     // --- Scene, Camera, Renderer ---
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x050505, 0.0016);
+    scene.fog = new THREE.FogExp2(0x030712, 0.0016);
 
     const camera = new THREE.PerspectiveCamera(
       60,
@@ -44,35 +44,36 @@ function Immersive3DBackground() {
     const coreMesh = new THREE.Mesh(coreGeometry, wireframeMaterial);
     mainGroup.add(coreMesh);
 
-    // 2. Outer Ring: Geometric Octahedron Orbit (Emerald Highlight)
+    // 2. Outer Ring: Geometric Octahedron Orbit (Cyan Highlight)
     const outerGeometry = new THREE.OctahedronGeometry(26, 0);
     const outerMaterial = new THREE.MeshBasicMaterial({
-      color: 0x10b981,
+      color: 0x00d2ff,
       wireframe: true,
       transparent: true,
-      opacity: 0.12,
+      opacity: 0.14,
     });
     const outerMesh = new THREE.Mesh(outerGeometry, outerMaterial);
     mainGroup.add(outerMesh);
 
-    // 3. Second Ring: Floating Torus / Node Gyroscope
+    // 3. Second Ring: Floating Torus / Node Gyroscope (Amber Glow)
     const torusGeometry = new THREE.TorusGeometry(36, 0.4, 8, 48);
     const torusMaterial = new THREE.MeshBasicMaterial({
-      color: 0x64748b,
+      color: 0xf59e0b,
       wireframe: true,
       transparent: true,
-      opacity: 0.08,
+      opacity: 0.1,
     });
     const torusMesh = new THREE.Mesh(torusGeometry, torusMaterial);
     torusMesh.rotation.x = Math.PI / 3;
     mainGroup.add(torusMesh);
 
-    // 4. Data Constellation Particles (Silver & Emerald nodes)
+    // 4. Data Constellation Particles (Silver, Cyan & Amber nodes)
     const particleCount = window.innerWidth < 768 ? 90 : 180;
     const particlePositions = new Float32Array(particleCount * 3);
     const particleColors = new Float32Array(particleCount * 3);
 
-    const emeraldColor = new THREE.Color(0x10b981);
+    const cyanColor = new THREE.Color(0x00d2ff);
+    const amberColor = new THREE.Color(0xf59e0b);
     const silverColor = new THREE.Color(0xcbd5e1);
     const slateColor = new THREE.Color(0x64748b);
 
@@ -82,8 +83,9 @@ function Immersive3DBackground() {
       particlePositions[idx + 1] = (Math.random() - 0.5) * 200;
       particlePositions[idx + 2] = (Math.random() - 0.5) * 160;
 
-      // Color distribution: 25% emerald (ROI), 75% metallic silver/slate
-      const chosenColor = Math.random() < 0.25 ? emeraldColor : Math.random() < 0.6 ? silverColor : slateColor;
+      // Color distribution: 30% cyan, 15% amber (ROI), 55% metallic silver/slate
+      const rand = Math.random();
+      const chosenColor = rand < 0.3 ? cyanColor : rand < 0.45 ? amberColor : rand < 0.75 ? silverColor : slateColor;
       particleColors[idx] = chosenColor.r;
       particleColors[idx + 1] = chosenColor.g;
       particleColors[idx + 2] = chosenColor.b;
@@ -248,9 +250,9 @@ function Immersive3DBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none bg-[#050505]">
+    <div className="fixed inset-0 -z-10 pointer-events-none bg-[#030712]">
       {/* Subtle Metallic Deep Background Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(148,163,184,0.06),rgba(5,5,5,0.98))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,210,255,0.06),rgba(3,7,18,0.98))]" />
       
       {/* WebGL Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block" />

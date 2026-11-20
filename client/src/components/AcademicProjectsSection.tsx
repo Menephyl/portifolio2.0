@@ -1,32 +1,18 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { academicProjects, type AcademicProject } from "@/data/academicProjects";
-import { GraduationCap, Github, ExternalLink, CheckCircle2, Code2, Sparkles } from "lucide-react";
+import { academicProjects, academicSkillCategories, type AcademicProject } from "@/data/academicProjects";
+import { GraduationCap, Github, ExternalLink, CheckCircle2, Code2, Sparkles, Wrench } from "lucide-react";
 import { Button } from "./ui/button";
 
 export default function AcademicProjectsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [selectedInstitution, setSelectedInstitution] = useState<string>("Todas");
+  const [selectedSkill, setSelectedSkill] = useState<string>("Todas as Habilidades");
 
-  const institutions = [
-    "Todas",
-    "Rocketseat",
-    "Dev Club",
-    "Curso em Vídeo",
-    "Estudos de UI / Multimídia"
-  ];
-
-  const filteredProjects = selectedInstitution === "Todas"
+  const filteredProjects = selectedSkill === "Todas as Habilidades"
     ? academicProjects
-    : academicProjects.filter((p) => {
-        if (selectedInstitution === "Rocketseat") return p.institution.includes("Rocketseat");
-        if (selectedInstitution === "Dev Club") return p.institution.includes("Dev Club");
-        if (selectedInstitution === "Curso em Vídeo") return p.institution.includes("Curso em Vídeo");
-        if (selectedInstitution === "Estudos de UI / Multimídia") return p.institution.includes("Estudos") || p.institution.includes("Fundamentos") || p.institution.includes("Portfólio");
-        return true;
-      });
+    : academicProjects.filter((p) => p.skillCategory === selectedSkill);
 
   return (
     <section id="academic" ref={ref} className="py-20 bg-background/80 backdrop-blur-sm relative overflow-hidden border-t border-border/60">
@@ -43,32 +29,32 @@ export default function AcademicProjectsSection() {
           className="text-center mb-12 sm:mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs sm:text-sm font-semibold mb-4">
-            <GraduationCap className="w-4 h-4" />
-            <span>Fundamentos & Aprendizado Contínuo</span>
+            <Wrench className="w-4 h-4" />
+            <span>Engenharia & Competências Técnicas Praticadas</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Projetos Acadêmicos & <span className="text-primary">Habilidades Adquiridas</span>
+            Projetos Acadêmicos & <span className="text-primary">Habilidades como Dev</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
           <p className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-            A base sólida da minha engenharia de software: projetos práticos desenvolvidos durante formações intensivas, focando no domínio de algoritmos, consumo de APIs e padrões arquiteturais modernos.
+            A base sólida da minha engenharia de software organizada por domínio técnico: projetos práticos focados em arquitetura de front-end, lógica de algoritmos, manipulação nativa de DOM e consumo de APIs.
           </p>
 
-          {/* Institution Filter Pills */}
+          {/* Developer Skill Filter Pills */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-8">
-            {institutions.map((inst) => (
+            {academicSkillCategories.map((skill) => (
               <Button
-                key={inst}
-                onClick={() => setSelectedInstitution(inst)}
-                variant={selectedInstitution === inst ? "default" : "outline"}
+                key={skill}
+                onClick={() => setSelectedSkill(skill)}
+                variant={selectedSkill === skill ? "default" : "outline"}
                 size="sm"
                 className={`text-xs sm:text-sm transition-all duration-300 ${
-                  selectedInstitution === inst
+                  selectedSkill === skill
                     ? "shadow-md shadow-primary/25"
                     : "hover:border-primary/40"
                 }`}
               >
-                {inst}
+                {skill}
               </Button>
             ))}
           </div>
@@ -85,10 +71,10 @@ export default function AcademicProjectsSection() {
               className="bg-card border border-border/80 rounded-2xl p-6 flex flex-col justify-between hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group relative"
             >
               <div>
-                {/* Institution & Badge */}
+                {/* Skill Category & Badge */}
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <span className="text-xs font-semibold text-primary px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20">
-                    {project.institution}
+                    {project.skillCategory}
                   </span>
                   <span className="text-[11px] font-medium text-muted-foreground px-2 py-0.5 rounded bg-muted/60">
                     {project.badge}
@@ -96,9 +82,14 @@ export default function AcademicProjectsSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2.5 group-hover:text-primary transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
+
+                {/* Secondary Institution Context */}
+                <p className="text-[11px] text-muted-foreground mb-3 font-mono">
+                  Base de Estudo: {project.institution}
+                </p>
 
                 {/* Description */}
                 <p className="text-xs sm:text-sm text-muted-foreground mb-5 leading-relaxed">

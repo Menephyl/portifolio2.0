@@ -1,9 +1,17 @@
+
+
+// aqui é onde eu coloco template para oferecer. 
 export interface StockTemplate {
   id: number;
   title: string;
   category: string;
   price: string;
   liveUrl: string;
+}
+
+export function getTemplateWhatsAppUrl(templateTitle: string, templatePrice: string): string {
+  const message = `Olá Yan! Vi o template "${templateTitle}" (${templatePrice}) no seu portfólio e quero fazer o pedido para meu negócio. Como podemos iniciar?`;
+  return `https://wa.me/5535984688884?text=${encodeURIComponent(message)}`;
 }
 
 export const stockTemplates: StockTemplate[] = [
@@ -21,4 +29,8 @@ export const stockTemplates: StockTemplate[] = [
   { id: 12, title: "Doceria / Confeitaria", category: "Alimentação", price: "R$ 34,90", liveUrl: "https://doceria-six.vercel.app/" },
   { id: 13, title: "Academia / CrossFit", category: "Fitness", price: "R$ 44,90", liveUrl: "https://academia-psi-lake.vercel.app/" },
   { id: 14, title: "Imobiliária", category: "Imóveis", price: "R$ 49,90", liveUrl: "https://imobiliaria-seven-kappa.vercel.app/" },
+  // Templates Estratégicos MMN, Expansão de Rede & Recadastramento
+  { id: 15, title: "S-Move — Portal de Recadastro & MMN", category: "MMN & Expansão de Rede", price: "R$ 49,90", liveUrl: "https://smovesan.vercel.app/" },
+  { id: 16, title: "AMK Cosméticos — Captação de Afiliados", category: "MMN & Venda Direta", price: "R$ 44,90", liveUrl: "https://sandersonamk.vercel.app/" },
+  { id: 17, title: "Atlântica Natural — Rede & Recadastramento", category: "MMN & Franquias", price: "R$ 49,90", liveUrl: "https://smovesan.vercel.app/" },
 ];

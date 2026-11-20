@@ -3,8 +3,8 @@ import { useInView } from "framer-motion";
 import { useRef, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ExternalLink, Tag } from "lucide-react";
-import { stockTemplates } from "@/data/stockTemplates";
+import { ExternalLink, Tag, MessageCircle } from "lucide-react";
+import { stockTemplates, getTemplateWhatsAppUrl } from "@/data/stockTemplates";
 import { Button } from "@/components/ui/button";
 
 export default function TemplateStockSection() {
@@ -86,12 +86,25 @@ export default function TemplateStockSection() {
                       <span className="font-bold text-foreground">
                         {template.price}
                       </span>
-                      <a href={template.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <Button size="icon" variant="ghost" className="h-8 w-8 rounded-full group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                          <ExternalLink className="w-4 h-4" />
+                      <a href={template.liveUrl} target="_blank" rel="noopener noreferrer" title="Ver Demonstração ao Vivo">
+                        <Button size="sm" variant="ghost" className="h-8 px-2.5 rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-all flex items-center gap-1.5 text-xs">
+                          <span>Demo</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
                         </Button>
                       </a>
                     </div>
+
+                    {/* Botão de Pedido Direto via WhatsApp */}
+                    <a
+                      href={getTemplateWhatsAppUrl(template.title, template.price)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] hover:text-[#25D366] text-xs font-bold transition-all shadow-sm"
+                      title="Fazer pedido deste template diretamente pelo WhatsApp"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5" />
+                      <span>Pedir no WhatsApp</span>
+                    </a>
                   </div>
                 </div>
               ))}
